@@ -1,9 +1,18 @@
 <template name="callTabsContent">
-  <div style="background:#45ADA8;" class="call-tab">
+  <div class="call-tab call-tab-new">
+    {{#each newCalls}}
+      {{> callTabsItem}}
+    {{/each}}
   </div>
-  <div style="left:33.3333333333%; background:#547980;" class="call-tab">
+  <div class="call-tab call-tab-taken">
+    {{#each takenCalls}}
+      {{> callTabsItem}}
+    {{/each}}
   </div>
-  <div style="left:66.6666666666%; background:#457ead;" class="call-tab">
+  <div class="call-tab call-tab-closed">
+    {{#each closedCalls}}
+      {{> callTabsItem}}
+    {{/each}}
   </div>
 </template>
 
