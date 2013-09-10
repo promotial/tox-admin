@@ -1,3 +1,7 @@
+Meteor.startup(function() {
+  Session.setDefault("closedCalls","hide");
+});
+
 var Calls = [
   {
     name: "John Doe",
@@ -43,8 +47,17 @@ Template.callList.helpers({
 
 Template.closedCalls.helpers({
   calls: Calls,
+  display: function() {return Session.get("closedCalls")},
 });
 
 Template.callItem.helpers({
   action: "Take",
+});
+
+Template.callView.helpers({
+  extend: function() {
+    if (Session.equals("closedCalls","hide")) {
+      return "extend";
+    };
+  },
 });

@@ -16,11 +16,11 @@
 
 <template name="closedCalls">
   <!-- tab title -->
-  <div id="closed-calls-title" class="call-list-button closed-hidden">
+  <div id="closed-calls-title" class="call-list-button closed-{{display}}">
     <div class="call-list-buttons-text">Closed Calls</div>
   </div>
   <!-- tab content -->
-  <div id="call-tab-closed" class="call-tab closed-hidden">
+  <div id="call-tab-closed" class="call-tab closed-{{display}}">
     {{#each calls}}
       {{> callItem}}
     {{/each}}
@@ -37,7 +37,7 @@
 </template>
 
 <template name="callView">
-  <div id="call-view" class="call-tab call-view-extend">
+  <div id="call-view" class="call-tab call-view-{{extend}}">
     <h2 class="call-view-text">Click on a call from a tab to view it here in detail.</h2>
   </div>
 </template>
