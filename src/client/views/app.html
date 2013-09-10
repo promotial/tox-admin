@@ -1,10 +1,18 @@
 <template name="app">
   <div class="app">
 	<!-- navbar -->
-    {{> topNav}}
+  {{> topNav}}
 
-	<!-- call tabs-->
-	{{> callTabs }}
+  <div id="call-tabs">
+	  <!-- call list-->
+	  {{> callList }}
+     
+    <!-- call view -->
+    {{> callView}}
+
+    <!-- closed calls -->
+    {{> closedCalls}}
+  </div>
 
 	<!-- footer -->
   </div>

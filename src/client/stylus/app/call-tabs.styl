@@ -7,51 +7,68 @@
   bottom 0px
   min-width 700px
 
-//call tabs buttons
-.call-tabs-button
+//call list buttons
+.call-list-button
   position absolute
   background #2980B9
   height 34px
-  width 33.3333333333%
+  width 15%
+  top 0px
   text-align center
-.call-tabs-button-new
+.call-list-button-pending
   background #378a86
-.call-tabs-button-taken
-  left 33.3333333333%
+.call-list-button-active
+  left 15%
   background #436066
-.call-tabs-button-closed
-  left 66.6666666666% 
-  background #37648a 
-//call tabs buttons text
-.call-tabs-buttons-text
+//call list buttons text
+.call-list-buttons-text
   font-size 21px
   margin-top 5px
   margin-left 8px
   color white  
+//closed calls title
+#closed-calls-title
+  width 30%
+  left 70% 
+  background #37648a 
 
-//call tabs content
+//call tab content
 .call-tab
   position absolute    
-  width 100%
   height auto
   top 34px
   bottom 0px
-  width 33.3333333333%
+  width 30%
   overflow-y scroll
-.call-tab-new
   background #45ADA8
-.call-tab-taken
-  left 33.3333333333%
-  background #547980
-.call-tab-closed
-  left 66.6666666666% 
+#call-tab-closed
   background #457ead
-
-//call tabs items-item
-.call-tabs-item
+  left 70%
+.closed-hidden
+  left 140% !important
+#call-view
+  background #C0C0C0  
+  width 40%
+  left 30%
+  top 0px
+  overflow-y auto
+.call-view-extend
+  width 70% !important
+//call list item
+.call-list-item
   background #ecf0f1
   width 90%
+  min-height 34px !important
+  height 50px
+  max-height 7%
   margin-left 5%
-  margin-top 3%
+  margin-top 3.3%
   border-radius 3px
   color transparent
+
+//call view text
+.call-view-text
+  width 90%
+  margin-left 5%
+  margin-top 4%
+  color white

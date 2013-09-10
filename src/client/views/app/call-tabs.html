@@ -1,9 +1,43 @@
-<template name="callTabs">
-  <div id="call-tabs">
-    <!-- call tabs buttons -->
-    {{> callTabsButtons}}
+<template name="callList">
+  <!-- call lists buttons -->
+  <div class="call-list-button call-list-button-pending">
+    <div class="call-list-buttons-text">Pending</div>
+  </div>
+  <div class="call-list-button call-list-button-active">
+    <div class="call-list-buttons-text">Active</div>
+  </div>
+  <!-- call list tab -->
+  <div class="call-tab">
+    {{#each calls}}
+      {{> callItem}}
+    {{/each}}
+  </div>
+</template>
 
-    <!-- call tabs content -->
-    {{> callTabsContent}}
+<template name="closedCalls">
+  <!-- tab title -->
+  <div id="closed-calls-title" class="call-list-button closed-hidden">
+    <div class="call-list-buttons-text">Closed Calls</div>
+  </div>
+  <!-- tab content -->
+  <div id="call-tab-closed" class="call-tab closed-hidden">
+    {{#each calls}}
+      {{> callItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="callItem">
+  <div class="call-list-item">
+    <span>{{name}}</span>
+    <span>{{mobile}}</span>
+    <span>{{action}}</span>
+    <a>View</a>
+  </div>
+</template>
+
+<template name="callView">
+  <div id="call-view" class="call-tab call-view-extend">
+    <h2 class="call-view-text">Click on a call from a tab to view it here in detail.</h2>
   </div>
 </template>
