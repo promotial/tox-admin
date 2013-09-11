@@ -50,8 +50,8 @@ Template.closedCalls.preserve(['#call-tab-closed','#closed-calls-title']);
 Template.closedCalls.helpers({
   calls: Calls,
   hide: function() {
-    if (Session.equals("closedCalls","hide")) {
-      return "closed-hide";
+    if (Session.equals("closedCalls","show")) {
+      return "closed-show";
     };
   },
 });
@@ -63,10 +63,9 @@ Template.callItem.helpers({
 Template.callView.preserve(['#call-view']);
 
 Template.callView.helpers({
-  extend: function() {
-    if (Session.equals("closedCalls","hide")) {
-      return "call-view-extend";
-    }
-    else {return "call-view-small"};
+  shrink: function() {
+    if (Session.equals("closedCalls","show")) {
+      return "call-view-shrink";
+    };
   },
 });
