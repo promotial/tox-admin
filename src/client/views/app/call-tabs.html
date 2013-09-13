@@ -38,6 +38,18 @@
 
 <template name="callView">
   <div id="call-view" class="call-tab {{shrink}}">
-    <h2 class="call-view-text">Click on a call from a tab to view it here in detail.</h2>
+    <!-- tab title -->
+    <div id="call-view-title" class="call-list-button">
+      <div class="call-view-text">+61223344667 </div>
+      <select id="call-view-urgency">
+        <option value="audi">None</option>
+        <option value="mercedes">Minor</option>
+        <option value="saab">Delayed</option>
+        <option value="c">Immediate</option>
+        <option value="c">Morgue</option>
+      </select> 
+    </div>
+    <!-- <h2 class="call-view-text">Click on a call from to view it here in detail.</h2> -->
+
   </div>
 </template>
