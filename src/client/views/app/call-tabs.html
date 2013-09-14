@@ -40,16 +40,34 @@
   <div id="call-view" class="call-tab {{shrink}}">
     <!-- tab title -->
     <div id="call-view-title" class="call-list-button">
-      <div class="call-view-text">+61223344667 </div>
+      <div class="call-view-title-text">+61223344667</div>
       <select id="call-view-urgency">
-        <option value="audi">None</option>
-        <option value="mercedes">Minor</option>
-        <option value="saab">Delayed</option>
-        <option value="c">Immediate</option>
-        <option value="c">Morgue</option>
+        <option value="0">None</option>
+        <option value="1">Minor</option>
+        <option value="2">Delayed</option>
+        <option value="3">Immediate</option>
+        <option value="4">Morgue</option>
       </select> 
     </div>
+    <!-- call description -->
+    <div id="call-view-description"> 
+      <div id="call-view-description-title"> <div style="padding:5px;">Call Description</div> </div>
+      <div style="overflow-y:auto; height:150px;">
+        <div id="call-view-description-text">
+          Joe Bloggs called regarding an incident that took place 2hrs 15m before the time of the call. The person involved is a 23 year old male who weighs 64kg.
+        </div>
+      </div> 
+    </div>
+    <!-- attached photos -->
+    <div id="call-view-photos"> 
+      <div id="call-view-photos-title"> <div style="padding:5px;">Attached Photos</div> </div>
+      <div style="overflow-x:scroll; overflow-y: hidden; height:150px; white-space: nowrap;">
+        <img src="/img/no-image.png" class="call-view-photo-item">
+        <img src="/img/no-image.png" class="call-view-photo-item">
+        <img src="/img/no-image.png" class="call-view-photo-item">
+        <img src="/img/no-image.png" class="call-view-photo-item">
+      </div> 
+    </div>
     <!-- <h2 class="call-view-text">Click on a call from to view it here in detail.</h2> -->
-
   </div>
 </template>

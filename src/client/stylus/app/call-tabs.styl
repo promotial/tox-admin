@@ -57,40 +57,102 @@
   transition width 1.5s
 .call-view-shrink
   width 40% !important
+  #call-view-description
+    @media (max-width:1300px)
+      width 94%
+  #call-view-photos
+    @media (max-width:1300px)
+      width 94%
+      margin-top 25px
 //call list item
 .call-list-item
   background #ecf0f1
   width 90%
-  min-height 34px !important
-  height 50px
-  max-height 7%
+  min-height 40px !important
+  height 60px
+  max-height 8%
   margin-left 5%
   margin-top 3.3%
   border-radius 3px
   color transparent
 
-//call view text
-.call-view-text
-  margin-left 15px
-  margin-top 6px
-  color white
-  font-size 1.6em
-  left 10%
-  float left
 //call view title
 #call-view-title
   background #7f8c8d
   width 100%
   transition left 1.5s
-//call view title
+//call view title text
+.call-view-title-text
+  margin-left 4px
+  padding 6px
+  color white
+  font-size 1.4em
+  left 8%
+  float left
+//call view urgency dropdown
 #call-view-urgency
   float right
   border-radius 0
-  height 100%
-  width 35%
+  height 104%
+  box-sizing border-box
+  width 32%
   max-width 220px
   padding 5px
   background #5a6465
   border 1px solid #ccc
   color white
   font-size 18px
+
+//call view description
+#call-view-description
+  float left
+  height 180px
+  width 94%
+  @media (min-width:800px)
+    width 45%
+  margin-top 48px
+  margin-left 3%
+  background #5a6465
+  border 1px solid #ccc
+//call view description title
+#call-view-description-title
+  color white
+  font-size 18px
+  height 30px
+  background #7f8c8d
+  text-align center
+//call view description text
+#call-view-description-text
+  margin-left 10px
+  margin-right 10px
+  margin-top 5px
+  color white
+  line-height 1.9
+  font-size 18px
+  height 145px
+
+//call view photos
+#call-view-photos
+  height 180px
+  width 94%
+  @media (min-width:800px)
+    width 45%
+    margin-top 48px
+  margin-top 25px
+  margin-right 3%
+  background #5a6465
+  border 1px solid #ccc
+  float right
+//call view photos title
+#call-view-photos-title
+  color white
+  font-size 18px
+  height 30px
+  background #7f8c8d
+  text-align center
+//call view photo item
+.call-view-photo-item
+  width 130px
+  height 130px
+  margin-top 3.5px
+  margin-left 10px
