@@ -36,7 +36,7 @@ Template.closedCalls.preserve(['#call-tab-closed','#closed-calls-title']);
 
 Template.closedCalls.helpers({
   calls: function() {
-    return Calls.find({status:"closed"});
+    return Calls.find({status:"closed"}, { sort: [["submitted","desc"]] });
   },
   hide: function() {
     if (Session.equals("closedCalls","show")) {
