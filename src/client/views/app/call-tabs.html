@@ -37,18 +37,19 @@
 </template>
 
 <template name="callView">
-  <div id="call-view" class="call-tab {{shrink}}">
-    <!-- tab title -->
-    <div id="call-view-title" class="call-list-button">
-      <div class="call-view-title-text">+61223344667</div>
-      <select id="call-view-urgency">
-        <option value="0">None</option>
-        <option value="1">Minor</option>
-        <option value="2">Delayed</option>
-        <option value="3">Immediate</option>
-        <option value="4">Morgue</option>
-      </select> 
-    </div>
+  <!-- tab title -->
+  <div id="call-view-title" class="call-list-button {{shrink}}">
+    <div class="call-view-title-text">+61223344667</div>
+    <select id="call-view-urgency">
+      <option value="0">None</option>
+      <option value="1">Minor</option>
+      <option value="2">Delayed</option>
+      <option value="3">Immediate</option>
+      <option value="4">Morgue</option>
+    </select> 
+  </div>
+  <!-- tab content -->
+  <div id="call-tab-view" class="call-tab {{shrink}}">
     <!-- call description -->
     <div id="call-view-description"> 
       <div id="call-view-description-title"> <div style="padding:5px;">Call Description</div> </div>
