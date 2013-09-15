@@ -7,10 +7,10 @@ Meteor.startup(function() {
 Template.callList.helpers({
   calls: function() {
     if (Session.equals("openList","pending")) {
-      return Calls.find({status:"pending"});
+      return Calls.find({status:"pending"}, { sort: [["submitted","desc"]] });
     }
     else {
-      return Calls.find({status:"active"}); 
+      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["submitted","desc"]] }); 
     };
   },
   pending: function() {
@@ -46,7 +46,7 @@ Template.closedCalls.helpers({
 });
 
 Template.callItem.helpers({
-  action: "Take",
+  action: "Action",
 });
 
 Template.callView.preserve(['#call-view']);
