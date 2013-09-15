@@ -54,7 +54,7 @@
       <div id="call-view-description-title"> <div style="padding:5px;">Call Description</div> </div>
       <div style="overflow-y:auto; height:150px;">
         <div id="call-view-description-text">
-          Joe Bloggs called regarding an incident that took place 2hrs 15m before the time of the call. The person involved is a 23 year old male who weighs 64kg.
+          Joe Bloggs called at 9:14AM on the 19th of April 2013, regarding an incident that took place 2hrs 15m before the time of the call. The person involved is a 23 year old male who weighs 64kg.
         </div>
       </div> 
     </div>
@@ -68,6 +68,8 @@
         <img src="/img/no-image.png" class="call-view-photo-item">
       </div> 
     </div>
+    <!-- caller location -->
+    {{#constant}} <div id="call-view-map"></div> {{/constant}}
     <!-- <h2 class="call-view-text">Click on a call from to view it here in detail.</h2> -->
   </div>
 </template>

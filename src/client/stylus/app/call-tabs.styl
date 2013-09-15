@@ -6,6 +6,7 @@
   top 38px
   bottom 0px
   min-width 700px
+  overflow hidden
 
 //call list buttons
 .call-list-button
@@ -58,12 +59,12 @@
 .call-view-shrink
   width 40% !important
   #call-view-description
-    @media (max-width:1300px)
+    @media (max-width:1400px)
       width 94%
   #call-view-photos
-    @media (max-width:1300px)
+    @media (max-width:1400px)
       width 94%
-      margin-top 25px
+      margin-top 20px
 //call list item
 .call-list-item
   background #ecf0f1
@@ -108,9 +109,9 @@
   float left
   height 180px
   width 94%
-  @media (min-width:800px)
+  @media (min-width:900px)
     width 45%
-  margin-top 48px
+  margin-top 54px
   margin-left 3%
   background #5a6465
   border 1px solid #ccc
@@ -135,10 +136,10 @@
 #call-view-photos
   height 180px
   width 94%
-  @media (min-width:800px)
+  @media (min-width:900px)
     width 45%
-    margin-top 48px
-  margin-top 25px
+    margin-top 54px
+  margin-top 20px
   margin-right 3%
   background #5a6465
   border 1px solid #ccc
@@ -156,3 +157,12 @@
   height 130px
   margin-top 3.5px
   margin-left 10px
+
+//call view map
+#call-view-map
+  height 240px
+  width 94%
+  float right
+  margin-top 20px
+  margin-bottom 40px
+  margin-right 3%
