@@ -1,7 +1,8 @@
 Meteor.startup(function() {
   Session.setDefault("closedCalls","hide");
-  L.Icon.Default.imagePath = '/leaflet/images'
-  Session.setDefault("openList","pending")
+  Session.setDefault("openList","pending");
+  Session.setDefault("openCall", null);
+  L.Icon.Default.imagePath = '/leaflet/images';
 });
 
 Template.callList.helpers({
@@ -49,13 +50,14 @@ Template.callItem.helpers({
   action: "Action",
 });
 
-Template.callView.preserve(['#call-view']);
-
 Template.callView.helpers({
   shrink: function() {
     if (Session.equals("closedCalls","show")) {
       return "call-view-shrink";
     };
+  },
+  call: function() {
+    return Calls.findOne({_id:Session.get("openCall")});
   },
 });
 
@@ -69,6 +71,15 @@ Template.callView.rendered = function() {
   }).addTo(map);
 };
 
+Template.noCallView.preserve(['#call-view-title','#call-tab-view']);
+
+Template.noCallView.helpers({
+  shrink: function() {
+    if (Session.equals("closedCalls","show")) {
+      return "call-view-shrink";
+    };
+  },
+});
 
 
     

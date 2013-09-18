@@ -32,14 +32,15 @@
     <span>{{name}}</span>
     <span>{{status}}</span>
     <span>{{action}}</span>
-    <a>View</a>
+    <a href="{{pathFor 'callView'}}">View</a>
   </div>
 </template>
 
 <template name="callView">
+  {{#with call}}
   <!-- tab title -->
   <div id="call-view-title" class="call-list-button {{shrink}}">
-    <div class="call-view-title-text">+61223344667</div>
+    <div class="call-view-title-text">{{number}}</div>
     <select id="call-view-urgency">
       <option value="0">None</option>
       <option value="1">Minor</option>
@@ -75,6 +76,19 @@
     <div id="call-view-comments" class="call-view-box"> 
       <div class="call-view-box-title"> <div style="padding:5px;">Comments</div> </div>
     </div>
-    <!-- <h2 class="call-view-text">Click on a call from to view it here in detail.</h2> -->
+  </div>
+  {{/with}}
+</template>
+
+<template name="noCallView">
+  <!-- tab title -->
+  <div id="call-view-title" class="call-list-button {{shrink}}">
+    <div class="call-view-title-text">Call View</div>
+  </div>
+  <!-- tab content -->
+  <div id="call-tab-view" class="call-tab {{shrink}}">
+    <h2 class="call-view-text">
+      Click on a call from to view it here in detail.   
+    </h2>
   </div>
 </template>

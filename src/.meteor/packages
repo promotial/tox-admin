@@ -26,3 +26,4 @@ audit-argument-checks
 preserve-inputs
 stylus
 insecure
+iron-router

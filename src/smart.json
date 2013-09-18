@@ -1,3 +1,5 @@
 {
-  "packages": {}
+  "packages": {
+    "iron-router": {"git":"https://github.com/EventedMind/iron-router.git", "branch":"dev"}
+  }
 }
