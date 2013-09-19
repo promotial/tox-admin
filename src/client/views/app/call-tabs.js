@@ -8,10 +8,10 @@ Meteor.startup(function() {
 Template.callList.helpers({
   calls: function() {
     if (Session.equals("openList","pending")) {
-      return Calls.find({status:"pending"}, { sort: [["submitted","desc"]] });
+      return Calls.find({status:"pending"}, { sort: [["timestamp","desc"]] });
     }
     else {
-      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["submitted","desc"]] }); 
+      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","desc"]] }); 
     };
   },
   pending: function() {
@@ -37,7 +37,7 @@ Template.closedCalls.preserve(['#call-tab-closed','#closed-calls-title']);
 
 Template.closedCalls.helpers({
   calls: function() {
-    return Calls.find({status:"closed"}, { sort: [["submitted","desc"]] });
+    return Calls.find({status:"closed"}, { sort: [["timestamp","desc"]] });
   },
   hide: function() {
     if (Session.equals("closedCalls","show")) {
