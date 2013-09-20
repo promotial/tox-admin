@@ -18,6 +18,7 @@ if (Calls.find().count() === 0) {
       age: Math.floor((Math.random()*94)+4),
       sex: sex[Math.floor((Math.random()*1)+0)],
       weight: Math.floor((Math.random()*89)+15),
+      loc: {lat: (Math.random()*90)-90, lon: (Math.random()*180)-180},
       status: status[Math.floor((Math.random()*3)+0)],
       timestamp: now.getTime(),
       date: now,
