@@ -56,7 +56,7 @@
       <div class="call-view-box-title"> <div style="padding:5px;">Call Description</div> </div>
       <div style="overflow-y:auto; height:150px;">
         <div id="call-view-description-text">
-          {{name}} called on the 19th of April 2013, regarding an incident that took place 2hrs 15m before the time of the call. The subject is a 23 year old male who weighs 64kg.
+          {{name}} called at {{ callTime date }} regarding an incident that took place {{#with ago}} {{hrs}}hrs {{min}}m {{/with}} before the time of the call. The subject is a {{age}} year old {{sex}} who weighs {{weight}}kg.
         </div>
       </div> 
     </div>
