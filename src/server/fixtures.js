@@ -1,29 +1,33 @@
 if (Calls.find().count() === 0) {
-  var now = new Date();
+  var randNum = function(a,b,decimal) {
+    if (decimal) {return (Math.random() * (b-a+1)) + a}; 
+    return (Math.floor(Math.random() * (b-a+1)) + a);
+  };
 
+  var now = new Date();
   var name = ["John Doe", "Mary Soap", "Joe Bloggs", "John Smith", "Billy Bob", "Johnny Davis", "Tim Cunning" ];
   var status = ["pending","active","closed"]; var sex = ["male","female"];
 
   var newDate = function () {
-    now.setFullYear(2013, Math.floor((Math.random()*11)+0), Math.floor((Math.random()*28)+1));
-    now.setMinutes( Math.floor((Math.random()*59)+1) );
-    now.setHours( Math.floor((Math.random()*23)+1) );
+    now.setFullYear(randNum(2011,2013), randNum(0,11), randNum(1,31));
+    now.setMinutes( randNum(1,59) );
+    now.setHours( randNum(1,23) );
   };
   
   for (var i=0; i <= 16; i++) {
     newDate();
     Calls.insert({
-      name: name[Math.floor((Math.random()*name.length)+0)],
-      number: Math.floor((Math.random()*9999999999)+1000000009),
-      age: Math.floor((Math.random()*94)+4),
-      sex: sex[Math.floor((Math.random()*1)+0)],
-      weight: Math.floor((Math.random()*89)+15),
-      loc: {lat: (Math.random()*90)-90, lon: (Math.random()*180)-180},
-      status: status[Math.floor((Math.random()*3)+0)],
+      name: name[randNum(0,name.length-1)],
+      number: randNum(1000000009,9999999999),
+      age: randNum(4,94),
+      sex: randNum(0,1),
+      weight: randNum(15,98),
+      loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
+      status: status[randNum(0,2)],
       timestamp: now.getTime(),
       date: now,
-      urgency: Math.floor((Math.random()*4)+0),
-      ago: {hrs:Math.floor((Math.random()*23)+1), min:Math.floor((Math.random()*59)+1)},
+      urgency: randNum(0,4),
+      ago: {hrs:randNum(1,7), min:randNum(1,59)},
     });
   };
 };
