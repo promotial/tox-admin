@@ -8,6 +8,8 @@
   min-width 700px
   overflow hidden
 
+/*CALL LISTS*/
+
 //call list buttons
 .call-list-button
   position absolute
@@ -40,7 +42,6 @@
   left 100% 
   background #37648a 
   transition left 1.5s
-
 //call tab content
 .call-tab
   position absolute    
@@ -56,17 +57,9 @@
   transition left 1.5s
 .closed-show
   left 70% !important
-#call-tab-view
-  background #C0C0C0  
-  width 70%
-  left 30%
-  top 34px
-  transition width 1.5s
-.call-view-shrink
-  width 40% !important
-  #call-view-description, #call-view-photos
-    @media (max-width:1450px)
-      width 94%
+
+/* CALL LIST ITEM */
+
 //call list item
 .call-list-item
   background #ecf0f1
@@ -79,6 +72,32 @@
   border-radius 3px
   color black
 
+/* INDIVIDUAL CALL VIEW */
+
+//call view tab
+#call-tab-view
+  background #C0C0C0  
+  width 70%
+  left 30%
+  top 34px
+  transition width 1.5s
+//call view classes
+.call-view-shrink
+  width 40% !important
+  #call-view-description, #call-view-photos
+    @media (max-width:1450px)
+      width 94%
+.call-view-box
+  width 94%
+  margin-top 20px
+  background #5a6465
+  border 1px solid #ccc
+.call-view-box-title
+  color white
+  font-size 18px
+  height 30px
+  background #7f8c8d
+  text-align center
 //call view title
 #call-view-title
   background #3498db
@@ -106,19 +125,6 @@
   border 1px solid #ccc
   color white
   font-size 18px
-
-.call-view-box
-  width 94%
-  margin-top 20px
-  background #5a6465
-  border 1px solid #ccc
-.call-view-box-title
-  color white
-  font-size 18px
-  height 30px
-  background #7f8c8d
-  text-align center
-
 //call view description
 #call-view-description
   height 180px
@@ -135,7 +141,6 @@
   line-height 1.9
   font-size 18px
   height 145px
-
 //call view photos
 #call-view-photos
   height 180px
@@ -149,7 +154,6 @@
   height 120px
   margin-top 8.5px
   margin-left 17px
-
 //call view map
 #call-view-map
   min-height 240px
@@ -165,7 +169,6 @@
     height 310px
   float right
   margin-right 3%
-
 //call view comments
 #call-view-comments
   height 340px
