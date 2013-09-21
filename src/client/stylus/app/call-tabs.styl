@@ -1,6 +1,6 @@
 //call tabs container
 #call-tabs
-  position absolute    
+  position fixed    
   width 100%
   height auto
   top 38px
@@ -30,13 +30,11 @@
   background #378a86
   &:hover
     opacity 1
-//call list buttons text
 .call-list-buttons-text
   font-size 21px
   margin-top 5px
   margin-left 8px
   color white  
-//closed calls title
 #closed-calls-title
   width 30%
   left 100% 
@@ -62,15 +60,34 @@
 
 //call list item
 .call-list-item
+  position relative
   background #ecf0f1
   width 90%
   min-height 40px !important
   height 60px
   max-height 8%
-  margin-left 5%
-  margin-top 3.3%
   border-radius 3px
   color black
+  margin-left 5%
+  margin-top 3.3%
+.call-item-btn
+  position absolute
+  right 8px
+  top 15%
+  height 70%
+  width 50px
+  display block
+  background blue
+  border-radius 4px
+  color white
+  text-decoration none
+  &:hover
+    opacity 0.8
+.call-item-btn-text
+  position absolute
+  margin-top 17%
+  margin-left 7%
+  font-size 17px
 
 /* INDIVIDUAL CALL VIEW */
 

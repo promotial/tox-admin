@@ -29,10 +29,7 @@
 
 <template name="callItem">
   <div class="call-list-item">
-    <span>{{name}}</span>
-    <span>{{status}}</span>
-    <span>{{action}}</span>
-    <a href="{{pathFor 'callView'}}">View</a>
+    <a class="call-item-btn" href={{pathFor 'callView'}}><span class="call-item-btn-text">View</span></a>
   </div>
 </template>
 
