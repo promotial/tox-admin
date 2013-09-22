@@ -29,7 +29,8 @@
 
 <template name="callItem">
   <div class="call-list-item">
-    <a class="call-item-btn" href={{pathFor 'callView'}}><span class="call-item-btn-text">View</span></a>
+    <div id="call-item-action-btn" class="call-item-btn">{{action status}}</div>
+    <a id="call-item-view-btn" class="call-item-btn" href={{pathFor 'callView'}}>View</a>
   </div>
 </template>
 
@@ -39,11 +40,11 @@
   <div id="call-view-title" class="call-list-button {{shrink}}">
     <div class="call-view-title-text">{{number}}</div>
     <select id="call-view-urgency">
-      <option value="0">None</option>
-      <option value="1">Minor</option>
-      <option value="2">Delayed</option>
-      <option value="3">Immediate</option>
-      <option value="4">Morgue</option>
+      <option>None</option>
+      <option>Minor</option>
+      <option>Delayed</option>
+      <option>Immediate</option>
+      <option>Morgue</option>
     </select> 
   </div>
   <!-- tab content -->

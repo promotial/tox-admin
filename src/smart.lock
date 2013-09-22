@@ -11,7 +11,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "1a72edfe159b20783c48c0eb68a7313eb3dbe953"
+        "commit": "91aa69d06d6c16d583b21f2dd0dd354ff1f1d214"
       }
     }
   }

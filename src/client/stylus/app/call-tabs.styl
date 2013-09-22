@@ -63,32 +63,39 @@
   position relative
   background #ecf0f1
   width 90%
-  min-height 40px !important
-  height 60px
-  max-height 8%
+  height 50px
   border-radius 3px
   color black
   margin-left 5%
   margin-top 3.3%
 .call-item-btn
   position absolute
-  right 8px
-  top 15%
-  height 70%
-  width 50px
+  right 4px
+  top 2px
+  height 22px
+  width 62px
   display block
   background blue
-  border-radius 4px
   color white
+  border-radius 3px
   text-decoration none
+  text-align center
+  line-height 23px
+  font-size 17px
+  @media (min-width:1200px)
+    height 35px
+    top 7.5px
+    line-height 35px
   &:hover
     opacity 0.8
-.call-item-btn-text
-  position absolute
-  margin-top 17%
-  margin-left 7%
-  font-size 17px
-
+#call-item-view-btn
+  top 26px
+  @media (min-width:1200px)
+    height 35px
+    right 68px
+    top 7.5px
+  background green
+  
 /* INDIVIDUAL CALL VIEW */
 
 //call view tab
@@ -157,7 +164,7 @@
   color white
   line-height 1.9
   font-size 18px
-  height 145px
+  height 145pxbreak;break;
 //call view photos
 #call-view-photos
   height 180px

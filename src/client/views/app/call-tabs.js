@@ -8,10 +8,10 @@ Meteor.startup(function() {
 Template.callList.helpers({
   calls: function() {
     if (Session.equals("openList","pending")) {
-      return Calls.find({status:"pending"}, { sort: [["timestamp","desc"]] });
+      return Calls.find({status:"pending"}, { sort: [["timestamp","asc"]] });
     }
     else {
-      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","desc"]] }); 
+      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","asc"]] }); 
     };
   },
   pending: function() {
@@ -47,8 +47,30 @@ Template.closedCalls.helpers({
 });
 
 Template.callItem.helpers({
-  action: "Action",
+  action: function(status) {
+    switch(status) {
+      case "pending": var actionVal="Take"; break;
+      case "active" : var actionVal="Close"; break;
+      case "closed" : var actionVal="Delete"; break;
+    };
+    return actionVal;
+  },
 });
+
+Template.callItem.events({
+  "click #call-item-action-btn": function() {
+    if (this.status === "pending") {
+      Calls.update(this._id, {
+        $set: {status:"active"}
+      });
+    } else if (this.status === "active") {
+      Calls.update(this._id, {
+        $set: {status:"closed"}
+      });
+    }; 
+  },
+});
+
 
 Template.callView.helpers({
   shrink: function() {
@@ -65,6 +87,9 @@ Template.callView.preserve(['#call-view-title','#call-tab-view']);
 
 Template.callView.rendered = function() {
   var call = Calls.findOne({_id:Session.get("openCall")});
+
+  document.getElementById("call-view-urgency").selectedIndex = call.urgency;
+
   var map = L.map('call-view-map').setView([call.loc.lat, call.loc.lon], 16);
 
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -73,6 +98,14 @@ Template.callView.rendered = function() {
       maxZoom: 18
   }).addTo(map);
 };
+
+Template.callView.events({
+  "change #call-view-urgency": function() {
+    Calls.update(this._id, {
+      $set: {urgency: document.getElementById("call-view-urgency").selectedIndex}
+    });
+  },
+});
 
 Template.noCallView.preserve(['#call-view-title','#call-tab-view']);
 
