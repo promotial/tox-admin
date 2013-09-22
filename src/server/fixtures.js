@@ -9,7 +9,7 @@ if (Calls.find().count() === 0) {
   var status = ["pending","active","closed"]; var sex = ["male","female"];
 
   var newDate = function () {
-    now.setFullYear(randNum(2011,2013), randNum(0,11), randNum(1,31));
+    now.setFullYear(randNum(2011,2013), randNum(0,8), randNum(1,31));
     now.setMinutes( randNum(1,59) );
     now.setHours( randNum(1,23) );
   };
