@@ -20,7 +20,7 @@ if (Calls.find().count() === 0) {
       name: name[randNum(0,name.length-1)],
       number: randNum(1000000009,9999999999),
       age: randNum(4,94),
-      sex: randNum(0,1),
+      sex: sex[randNum(0,1)],
       weight: randNum(15,98),
       loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
       status: status[randNum(0,2)],
