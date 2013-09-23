@@ -30,4 +30,6 @@ if (Calls.find().count() === 0) {
       ago: {hrs:randNum(1,7), min:randNum(1,59)},
     });
   };
+
+  Accounts.createUser({email:"test@example.com",password:"test"});
 };

@@ -1,6 +1,6 @@
 Router.configure({
   layoutTemplate: 'layout',
-  /* //redirects users that aren't logged in to login page (all paths)
+  //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {
       // render the login template but keep the url in the browser the same
@@ -9,7 +9,7 @@ Router.configure({
       // stop the rest of the before hooks and the action function 
       this.stop();
     };
-  },*/
+  },
 });
 
 Router.map(function () {
