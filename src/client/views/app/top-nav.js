@@ -6,4 +6,8 @@ Template.topNav.events({
   	}
     else {Session.set("closedCalls","hide")};
   },
+  //log out button
+  'click #logout-btn': function (event) {
+    Meteor.logout();
+  },
 });
