@@ -91,8 +91,6 @@ Template.callItem.events({
       if (Session.equals("openCall",this._id)) {
         Router.go("/");
       };
-      var openClosedCalls=function(){Session.set("closedCalls","show");};
-      Meteor.setTimeout(openClosedCalls,200);
     }; 
   },
   "click #call-item-assigned-action": function() {
