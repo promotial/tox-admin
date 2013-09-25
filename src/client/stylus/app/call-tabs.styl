@@ -5,7 +5,7 @@
   height auto
   top 38px
   bottom 0px
-  min-width 700px
+  min-width 920px
   overflow hidden
 
 /*CALL LISTS*/
@@ -23,9 +23,11 @@
   left 15%
   &:hover
     opacity 0.9
+    cursor pointer
 .call-list-button-pending
   &:hover
     opacity 0.9
+    cursor pointer
 .open-list
   background #378a86
   &:hover
@@ -48,6 +50,7 @@
   bottom 0px
   width 30%
   overflow-y auto
+  overflow-x hidden
   background #45ADA8
 #call-tab-closed
   background #457ead
@@ -70,7 +73,6 @@
   margin-top 3.3%
 .call-item-btn
   position absolute
-  right 5px
   top 2px
   height 22px
   width 62px
@@ -82,6 +84,29 @@
   text-align center
   line-height 23px
   font-size 17px
+#call-item-assigned
+  height 46px
+  width 46px
+  top 2px
+  right 2px
+  font-size 19px
+  background #808080         
+  line-height 42px
+  box-sizing border-box
+  border solid 3px
+.call-item-assigned-true
+  line-height 30px !important
+#call-item-assigned-action
+  height 14px
+  width 40px
+  top 26px
+  font-size 11px
+  right 0px
+  background red
+  line-height 12px
+  opacity 0.5
+  &:hover
+    opacity 0.8
 #call-item-number
   left 8px
   background none
@@ -93,27 +118,44 @@
   left 8px
   background none
 #call-item-view-btn
+  right 51px
   @media (min-width:1200px)
     height 35px
     top 7.5px
+    right 60px
     line-height 35px
   &:hover
     opacity 0.8
 #call-item-action-btn
   top 26px
+  right 51px
   @media (min-width:1200px)
     height 35px
-    right 72px
+    right 127px
     top 7.5px
     line-height 35px
   background green
   &:hover
     opacity 0.8
+.call-item-btn-pending-action
+  right 2px !important
+  @media (min-width:1200px)
+    right 4px !important
+.call-item-btn-pending-view
+  right 2px !important
+  @media (min-width:1200px)
+    right 70px !important
+.call-item-btn-active-false
+  background #989898 !important
+  &:hover
+    background #989898 !important
+    opacity 1 !important
+    
 /* INDIVIDUAL CALL VIEW */
 
 //call view tab
 #call-tab-view
-  background #C0C0C0  
+  background #B0B0B0   
   width 70%
   left 30%
   top 34px
@@ -166,7 +208,7 @@
 #call-view-description
   height 180px
   float left
-  @media (min-width:904px)
+  @media (min-width:950px)
     width 45%
   margin-left 3%
 //call view description text
@@ -183,7 +225,7 @@
   height 180px
   margin-right 3%
   float right
-  @media (min-width:904px)
+  @media (min-width:950px)
     width 45%
 //call view photo item
 .call-view-photo-item
@@ -212,3 +254,13 @@
   float right
   margin-right 3%
   margin-bottom 20px
+
+/* NO CALL VIEW */
+
+#no-call-view-text
+  font-size 23px
+  margin 10px
+  color white  
+#no-call-view-title
+  float none
+  text-align center

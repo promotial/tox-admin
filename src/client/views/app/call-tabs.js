@@ -55,18 +55,59 @@ Template.callItem.helpers({
     };
     return actionVal;
   },
+  assignedAction: function(status) {
+    switch(status) {
+      case "active" : var actionVal="Leave"; break;
+      case "closed" : var actionVal="Open"; break;
+    };
+    return actionVal;
+  },
+  notTaken: function(status) {
+    if (status!=="pending") {
+      return true;
+    };
+    return false;
+  },
+  myCall: function(operator) {
+    if (Meteor.user().username === operator) {
+      return true
+    };
+    return false;
+  },
 });
 
 Template.callItem.events({
   "click #call-item-action-btn": function() {
     if (this.status === "pending") {
       Calls.update(this._id, {
-        $set: {status:"active"}
+        $set: {status:"active", operator:Meteor.user().username}
       });
-    } else if (this.status === "active") {
+      Router.go("/calls/"+this._id);
+      Session.set("openList","active");
+    } else if (this.status === "active" && this.operator==Meteor.user().username) {
       Calls.update(this._id, {
         $set: {status:"closed"}
       });
+      if (Session.equals("openCall",this._id)) {
+        Router.go("/");
+      };
+      var openClosedCalls=function(){Session.set("closedCalls","show");};
+      Meteor.setTimeout(openClosedCalls,200);
+    }; 
+  },
+  "click #call-item-assigned-action": function() {
+    if (this.status === "active") {
+      Calls.update(this._id, {
+        $set: {status:"pending", operator:false}
+      });
+      Router.go("/");
+      Session.set("openList","pending");
+    } else if (this.status === "closed") {
+      Calls.update(this._id, {
+        $set: {status:"active"}
+      });
+      Router.go("/calls/"+this._id);
+      Session.set("openList","active");
     }; 
   },
 });
@@ -93,10 +134,16 @@ Template.callView.rendered = function() {
   var map = L.map('call-view-map').setView([call.loc.lat, call.loc.lon], 16);
 
   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-      maxZoom: 18
+    maxZoom: 18
   }).addTo(map);
+
+  Deps.autorun(function() {
+    Session.get("closedCalls");
+    var rerender = function(){map.invalidateSize();};  
+    Meteor.setTimeout(rerender,1550);
+  });
 };
 
 Template.callView.events({

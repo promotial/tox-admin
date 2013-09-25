@@ -29,10 +29,26 @@
 
 <template name="callItem">
   <div class="call-list-item">
-    <div id="call-item-action-btn" class="call-item-btn">{{action status}}</div>
-    <a id="call-item-view-btn" class="call-item-btn" href={{pathFor 'callView'}}>View</a>
+    <!-- action button -->
+    <a id="call-item-action-btn" class="call-item-btn call-item-btn-{{status}}-action call-item-btn-{{status}}-{{myCall operator}}"  href="">{{action status}}</a>
+    <!-- view button -->
+    <a id="call-item-view-btn" class="call-item-btn call-item-btn-{{status}}-view" href={{pathFor 'callView'}}>View</a>
+    <!-- display callers number -->
     <div id="call-item-number" class="call-item-btn">{{number}}</div>
+    <!-- display call date -->
     <div id="call-item-date" class="call-item-btn">{{callTimeShort date}}</div>
+
+    {{#if notTaken status }}
+    <!-- assigned operator -->
+    <div id="call-item-assigned" class="call-item-btn call-item-assigned-{{myCall operator}}">
+      <!-- operator initials/photo -->
+      <span title={{operator}}>{{getInitials operator}}</span> 
+      {{#if myCall operator}}
+        <!-- leave/open buttons -->
+        <a href="" id="call-item-assigned-action" class="call-item-btn">{{assignedAction status}}</a>
+      {{/if}}
+    </div>
+    {{/if}}
   </div>
 </template>
 
@@ -83,12 +99,9 @@
 <template name="noCallView">
   <!-- tab title -->
   <div id="call-view-title" class="call-list-button {{shrink}}">
-    <div class="call-view-title-text">Call View</div>
+    <div id="no-call-view-title" class="call-view-title-text">No Call Selected</div>
   </div>
   <!-- tab content -->
   <div id="call-tab-view" class="call-tab {{shrink}}">
-    <h2 class="call-view-text">
-      Click on a call from to view it here in detail.   
-    </h2>
   </div>
 </template>
