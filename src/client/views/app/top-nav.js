@@ -9,5 +9,6 @@ Template.topNav.events({
   //log out button
   'click #logout-btn': function (event) {
     Meteor.logout();
+    Router.go("/");
   },
 });
