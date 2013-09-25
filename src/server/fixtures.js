@@ -6,7 +6,7 @@ if (Calls.find().count() === 0) {
 
   var now = new Date();
   var name = ["John Doe", "Mary Soap", "Joe Bloggs", "John Smith", "Billy Bob", "Johnny Davis", "Tim Cunning" ];
-  var status = ["pending","active","closed"]; var sex = ["male","female"];
+  var sex = ["male","female"];
 
   var newDate = function () {
     now.setFullYear(randNum(2011,2013), randNum(0,8), randNum(1,31));
@@ -14,7 +14,7 @@ if (Calls.find().count() === 0) {
     now.setHours( randNum(1,23) );
   };
   
-  for (var i=0; i <= 16; i++) {
+  for (var i=0; i <= 12; i++) {
     newDate();
     Calls.insert({
       name: name[randNum(0,name.length-1)],
@@ -23,13 +23,18 @@ if (Calls.find().count() === 0) {
       sex: sex[randNum(0,1)],
       weight: randNum(15,98),
       loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
-      status: status[randNum(0,2)],
+      status: "pending",
       timestamp: now.getTime(),
       date: now,
       urgency: randNum(0,4),
       ago: {hrs:randNum(1,7), min:randNum(1,59)},
+      operator: false,
     });
   };
 
-  Accounts.createUser({email:"test@example.com",password:"test"});
+  Accounts.createUser({email:"test@example.com",password:"test",username:"Danny Smith"});
+  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark"});
+  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe"});
+  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright"});
+  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle"});
 };

@@ -7,3 +7,7 @@ Handlebars.registerHelper('callTimeShort', function(date) {
   moment.lang('en');
   return moment(date).fromNow();
 });
+
+Handlebars.registerHelper('getInitials', function(name) {
+  return name.replace(/[^A-Z]/g, '');
+});
