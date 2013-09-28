@@ -28,7 +28,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-signout, .icon-cog, .icon-globe, .icon-plus-sign, .icon-phone, .icon-trash, .icon-edit, .icon-save, .icon-info, .icon-user, .icon-clock, .icon-phone-hang-up {
+.icon-signout, .icon-cog, .icon-plus-sign, .icon-clock, .icon-trash {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -44,33 +44,12 @@ you can use the generic selector below, but it's slower:
 .icon-cog:before {
 	content: "\f013";
 }
-.icon-globe:before {
-	content: "\f0ac";
-}
 .icon-plus-sign:before {
 	content: "\f055";
-}
-.icon-phone:before {
-	content: "\e000";
-}
-.icon-trash:before {
-	content: "\f014";
-}
-.icon-edit:before {
-	content: "\f044";
-}
-.icon-save:before {
-	content: "\f0c7";
-}
-.icon-info:before {
-	content: "\e001";
-}
-.icon-user:before {
-	content: "\e002";
 }
 .icon-clock:before {
 	content: "\e003";
 }
-.icon-phone-hang-up:before {
-	content: "\e004";
+.icon-trash:before {
+	content: "\f014";
 }
