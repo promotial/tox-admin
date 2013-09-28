@@ -13,7 +13,9 @@ Template.login.events({
     Meteor.loginWithPassword(email, password, function(err) {
       if (err) {
         console.log("Login Failed");
-      }
+      } else {
+        Meteor.subscribe('calls')
+      };
     });
 
     return false; 

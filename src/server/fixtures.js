@@ -17,17 +17,18 @@ if (Calls.find().count() === 0) {
   for (var i=0; i <= 12; i++) {
     newDate();
     Calls.insert({
+      timestamp: now.getTime(),
+      user: false,
+      ago: {hrs:randNum(1,7), min:randNum(1,59)},
+      date: now,
+      loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
       name: name[randNum(0,name.length-1)],
       number: randNum(1000000009,9999999999),
       age: randNum(4,94),
       sex: sex[randNum(0,1)],
       weight: randNum(15,98),
-      loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
       status: "pending",
-      timestamp: now.getTime(),
-      date: now,
       urgency: randNum(0,4),
-      ago: {hrs:randNum(1,7), min:randNum(1,59)},
       operator: false,
     });
   };

@@ -13,8 +13,6 @@ livedata
 mongo-livedata
 templating
 handlebars
-check
-underscore
 ejson
 
 #For App
@@ -25,6 +23,6 @@ force-ssl
 audit-argument-checks
 preserve-inputs
 stylus
-insecure
 iron-router
-accounts-ui
+underscore
+check
