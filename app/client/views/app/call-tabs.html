@@ -28,7 +28,7 @@
 </template>
 
 <template name="callItem">
-  <div class="call-list-item {{urgency}}">
+  <div class="call-list-item urgency-{{urgency}}">
     <!-- action button -->
     <a id="call-item-action-btn" class="call-item-btn call-item-btn-{{status}}-action call-item-btn-{{status}}-{{myCall operator}}"  href="">{{action status}}</a>
     <!-- view button -->
@@ -42,7 +42,7 @@
     <!-- assigned operator -->
     <div id="call-item-assigned" class="call-item-btn call-item-assigned-{{myCall operator}}">
       <!-- operator initials/photo -->
-      <span title={{operator}}>{{getInitials operator}}</span> 
+      <span title='{{operator}}'>{{getInitials operator}}</span>
       {{#if myCall operator}}
         <!-- leave/open buttons -->
         <a href="" id="call-item-assigned-action" class="call-item-btn">{{assignedAction status}}</a>
