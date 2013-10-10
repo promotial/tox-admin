@@ -1,10 +1,10 @@
 <template name="callList">
   <!-- call lists buttons -->
   <div class="call-list-button call-list-button-pending {{pending}}">
-    <div class="call-list-buttons-text">Pending</div>
+    <div class="call-list-buttons-text">{{multiLang 'PENDING'}}</div>
   </div>
   <div class="call-list-button call-list-button-active {{active}}">
-    <div class="call-list-buttons-text">Active</div>
+    <div class="call-list-buttons-text">{{multiLang 'ACTIVE'}}</div>
   </div>
   <!-- call list tab -->
   <div class="call-tab">
@@ -17,7 +17,7 @@
 <template name="closedCalls">
   <!-- tab title -->
   <div id="closed-calls-title" class="call-list-button {{hide}}">
-    <div class="call-list-buttons-text">Closed Calls</div>
+    <div class="call-list-buttons-text">{{multiLang 'CLOSED_CALLS'}}</div>
   </div>
   <!-- tab content -->
   <div id="call-tab-closed" class="call-tab {{hide}}">
@@ -28,11 +28,11 @@
 </template>
 
 <template name="callItem">
-  <div class="call-list-item urgency-{{urgency}}">
+  <div class="call-list-item {{#if notClosed status}} urgency-{{urgency}} {{/if}}">
     <!-- action button -->
     <a id="call-item-action-btn" class="call-item-btn call-item-btn-{{status}}-action call-item-btn-{{status}}-{{myCall operator}}"  href="">{{action status}}</a>
     <!-- view button -->
-    <a id="call-item-view-btn" class="call-item-btn call-item-btn-{{status}}-view" href={{pathFor 'callView'}}>View</a>
+    <a id="call-item-view-btn" class="call-item-btn call-item-btn-{{status}}-view" href={{pathFor 'callView'}}>{{multiLang 'VIEW'}}</a>
     <!-- display callers number -->
     <div id="call-item-number" class="call-item-btn">{{number}}</div>
     <!-- display call date -->
@@ -69,16 +69,16 @@
   <div id="call-tab-view" class="call-tab {{shrink}}">
     <!-- call description -->
     <div id="call-view-description" class="call-view-box"> 
-      <div class="call-view-box-title"> <div style="padding:5px;">Call Description</div> </div>
+      <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'CALL_DESCRIPTION'}}</div> </div>
       <div style="overflow-y:auto; height:150px;">
         <div id="call-view-description-text">
-          {{name}} called at {{ callTime date }}. The subject is a {{age}} year old {{sex}} who weighs {{weight}}kg.
+          {{getDescription name date age sex weight}}
         </div>
       </div> 
     </div>
     <!-- attached photos -->
     <div id="call-view-photos" class="call-view-box"> 
-      <div class="call-view-box-title"> <div style="padding:5px;">Attached Photos</div> </div>
+      <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'ATTACHED_PHOTOS'}}</div> </div>
       <div style="overflow-x:scroll; overflow-y: hidden; height:150px; white-space: nowrap;">
         <img src="/img/no-image.png" class="call-view-photo-item">
         <img src="/img/no-image.png" class="call-view-photo-item">
@@ -90,7 +90,7 @@
     <div id="call-view-map" class="call-view-box"></div>
     <!-- call description -->
     <div id="call-view-comments" class="call-view-box"> 
-      <div class="call-view-box-title"> <div style="padding:5px;">Comments</div> </div>
+      <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'COMMENTS'}}</div> </div>
     </div>
   </div>
   {{/with}}
@@ -99,7 +99,7 @@
 <template name="noCallView">
   <!-- tab title -->
   <div id="call-view-title" class="call-list-button {{shrink}}">
-    <div id="no-call-view-title" class="call-view-title-text">No Call Selected</div>
+    <div id="no-call-view-title" class="call-view-title-text">{{multiLang 'NO_CALL_SELECTED'}}</div>
   </div>
   <!-- tab content -->
   <div id="call-tab-view" class="call-tab {{shrink}}">

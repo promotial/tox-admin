@@ -12,7 +12,7 @@ Template.callList.helpers({
     }
     else {
       return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","asc"]] }); 
-    };
+    }
   },
   pending: function() {
     if (Session.equals("openList","pending")) {
@@ -49,31 +49,37 @@ Template.closedCalls.helpers({
 Template.callItem.helpers({
   action: function(status) {
     switch(status) {
-      case "pending": var actionVal="Take"; break;
-      case "active" : var actionVal="Close"; break;
-      case "closed" : var actionVal="Delete"; break;
+      case "pending": var actionVal = multiLang("TAKE");   break;
+      case "active" : var actionVal = multiLang("CLOSE");  break;
+      case "closed" : var actionVal = multiLang("DELETE"); break;
     }
     return actionVal;
   },
   assignedAction: function(status) {
     switch(status) {
-      case "active" : var actionVal="Leave"; break;
-      case "closed" : var actionVal="Open"; break;
-    };
+      case "active" : var actionVal=multiLang("LEAVE"); break;
+      case "closed" : var actionVal=multiLang("OPEN"); break;
+    }
     return actionVal;
   },
   notTaken: function(status) {
     if (status!=="pending") {
       return true;
-    };
+    }
+    return false;
+  },
+  notClosed: function(status) {
+    if (status!=="closed") {
+      return true;
+    }
     return false;
   },
   myCall: function(operator) {
     if (Meteor.user().username === operator) {
-      return true
-    };
+      return true;
+    }
     return false;
-  },
+  }
 });
 
 Template.callItem.events({
@@ -90,8 +96,8 @@ Template.callItem.events({
       });
       if (Session.equals("openCall",this._id)) {
         Router.go("/");
-      };
-    }; 
+      }
+    }
   },
   "click #call-item-assigned-action": function() {
     if (this.status === "active") {
@@ -106,8 +112,8 @@ Template.callItem.events({
       });
       Router.go("/calls/"+this._id);
       Session.set("openList","active");
-    }; 
-  },
+    }
+  }
 });
 
 
@@ -115,11 +121,11 @@ Template.callView.helpers({
   shrink: function() {
     if (Session.equals("closedCalls","show")) {
       return "call-view-shrink";
-    };
+    }
   },
   call: function() {
     return Calls.findOne({_id:Session.get("openCall")});
-  },
+  }
 });
 
 Template.callView.preserve(['#call-view-title','#call-tab-view']);
@@ -139,7 +145,7 @@ Template.callView.rendered = function() {
 
   Deps.autorun(function() {
     Session.get("closedCalls");
-    var rerender = function(){map.invalidateSize();};  
+    var rerender = function(){map.invalidateSize();};
     Meteor.setTimeout(rerender,1550);
   });
 };
@@ -149,7 +155,7 @@ Template.callView.events({
     Calls.update(this._id, {
       $set: {urgency: document.getElementById("call-view-urgency").selectedIndex}
     });
-  },
+  }
 });
 
 Template.noCallView.preserve(['#call-view-title','#call-tab-view']);
@@ -158,8 +164,8 @@ Template.noCallView.helpers({
   shrink: function() {
     if (Session.equals("closedCalls","show")) {
       return "call-view-shrink";
-    };
-  },
+    }
+  }
 });
 
 

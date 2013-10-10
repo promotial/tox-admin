@@ -14,10 +14,10 @@ Template.login.events({
       if (err) {
         console.log("Login Failed");
       } else {
-        Meteor.subscribe('calls')
-      };
+        Meteor.subscribe('calls');
+      }
     });
 
-    return false; 
+    return false;
   }
 });

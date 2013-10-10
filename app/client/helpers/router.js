@@ -2,14 +2,15 @@ Router.configure({
   layoutTemplate: 'layout',
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
+    Session.set("language","en");
     if (!Meteor.user()) {
       // render the login template but keep the url in the browser the same
       this.render('login');
 
       // stop the rest of the before hooks and the action function 
       this.stop();
-    };
-  },
+    }
+  }
 });
 
 Router.map(function () {
@@ -24,8 +25,8 @@ Router.map(function () {
     before: function() {
       //redirect users back to app "/" if call doesn't exist
       if ( !Calls.findOne({_id: this.params._id}) ) {
-        this.redirect("/")
-      };
+        this.redirect("/");
+      }
     },
     action: function () {
       //data property can't yet change context of child yields so using session
@@ -34,7 +35,7 @@ Router.map(function () {
       //render app and then call view template
       this.render("app");
       this.render('callView', { to: 'callTab' });
-    },
+    }
   });
   
   //routes "/" to app 
