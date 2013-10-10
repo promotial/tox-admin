@@ -32,9 +32,9 @@ if (Calls.find().count() === 0) {
     });
   };
 
-  Accounts.createUser({email:"test@example.com",password:"test",username:"Danny Smith"});
-  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark"});
-  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe"});
-  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright"});
-  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle"});
+  Accounts.createUser({email:"test@example.com",password:"test",username:"Danny Smith",profile:{admin:true} });
+  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false} });
+  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe",profile:{admin:false} });
+  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright",profile:{admin:true} });
+  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle",profile:{admin:true} });
 };

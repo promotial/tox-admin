@@ -16,7 +16,13 @@ Router.configure({
 Router.map(function () {
   //admin interface
   this.route('admin', {
-    path: '/admin'
+    path: '/admin',
+    before: function () {
+      if (!Meteor.user().profile.admin) {
+        // redirect to app
+        this.redirect("/");
+      }
+    }
   });
   
   //individual call view by id
@@ -30,7 +36,7 @@ Router.map(function () {
     },
     action: function () {
       //data property can't yet change context of child yields so using session
-      Session.set("openCall",this.params._id); 
+      Session.set("openCall",this.params._id)
 
       //render app and then call view template
       this.render("app");
@@ -41,14 +47,14 @@ Router.map(function () {
   //routes "/" to app 
   this.route('app', {
     path: '/',
-    yieldTemplates: { 'noCallView': {to: 'callTab'} },
+    yieldTemplates: { 'noCallView': {to: 'callTab'} }
   });
 
   //redirect all other urls to app ("/")
   this.route('notFound', {
     path: '*',
     action: function () {
-      this.redirect("/")
-    },
+      this.redirect("/");
+    }
   });
 });
