@@ -28,7 +28,7 @@
 </template>
 
 <template name="callItem">
-  <div class="call-list-item">
+  <div class="call-list-item {{urgency}}">
     <!-- action button -->
     <a id="call-item-action-btn" class="call-item-btn call-item-btn-{{status}}-action call-item-btn-{{status}}-{{myCall operator}}"  href="">{{action status}}</a>
     <!-- view button -->
@@ -72,7 +72,7 @@
       <div class="call-view-box-title"> <div style="padding:5px;">Call Description</div> </div>
       <div style="overflow-y:auto; height:150px;">
         <div id="call-view-description-text">
-          {{name}} called at {{ callTime date }} regarding an incident that took place {{#with ago}} {{hrs}}hrs {{min}}m {{/with}} before the time of the call. The subject is a {{age}} year old {{sex}} who weighs {{weight}}kg.
+          {{name}} called at {{ callTime date }}. The subject is a {{age}} year old {{sex}} who weighs {{weight}}kg.
         </div>
       </div> 
     </div>

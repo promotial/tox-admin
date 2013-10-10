@@ -17,13 +17,13 @@ Template.callList.helpers({
   pending: function() {
     if (Session.equals("openList","pending")) {
       return "open-list";
-    }; 
+    }
   },
   active: function() {
     if (Session.equals("openList","active")) {
       return "open-list";
-    };
-  },
+    }
+  }
 });
 
 Template.callList.events({
@@ -42,8 +42,8 @@ Template.closedCalls.helpers({
   hide: function() {
     if (Session.equals("closedCalls","show")) {
       return "closed-show";
-    };
-  },
+    }
+  }
 });
 
 Template.callItem.helpers({
@@ -52,7 +52,7 @@ Template.callItem.helpers({
       case "pending": var actionVal="Take"; break;
       case "active" : var actionVal="Close"; break;
       case "closed" : var actionVal="Delete"; break;
-    };
+    }
     return actionVal;
   },
   assignedAction: function(status) {
@@ -96,7 +96,7 @@ Template.callItem.events({
   "click #call-item-assigned-action": function() {
     if (this.status === "active") {
       Calls.update(this._id, {
-        $set: {status:"pending", operator:false}
+        $set: {status:"pending", operator:false, urgency:0}
       });
       Router.go("/");
       Session.set("openList","pending");

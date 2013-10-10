@@ -5,7 +5,7 @@ if (Calls.find().count() === 0) {
   };
 
   var now = new Date();
-  var name = ["John Doe", "Mary Soap", "Joe Bloggs", "John Smith", "Billy Bob", "Johnny Davis", "Tim Cunning" ];
+  var names = ["John Doe", "Mary Soap", "Joe Bloggs", "John Smith", "Billy Bob", "Johnny Davis", "Tim Cunning" ];
   var sex = ["male","female"];
 
   var newDate = function () {
@@ -19,17 +19,16 @@ if (Calls.find().count() === 0) {
     Calls.insert({
       timestamp: now.getTime(),
       user: false,
-      ago: {hrs:randNum(1,7), min:randNum(1,59)},
       date: now,
       loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
-      name: name[randNum(0,name.length-1)],
-      number: randNum(1000000009,9999999999),
+      name: names[randNum(0,names.length-1)],
+      number: ''+randNum(1000000009,9999999999),
       age: randNum(4,94),
       sex: sex[randNum(0,1)],
       weight: randNum(15,98),
       status: "pending",
-      urgency: randNum(0,4),
-      operator: false,
+      urgency: 0,
+      operator: false
     });
   };
 
