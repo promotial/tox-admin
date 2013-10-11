@@ -1,5 +1,7 @@
 var Language = {
   en: {
+    ADMIN:"Admin",
+    ACTION:"Action",
     SEX_0:"Male",
     SEX_1:"Female",
     FORGOT_PASS:"Forgot your password?",
@@ -20,6 +22,7 @@ var Language = {
     OPEN:"Open",
     LEAVE:"Leave",
     DESCRIPTION:"_NAME_ called at _DATE_. The subject is a _AGE_ year old _SEX_ who weighs _WEIGHT_kg.",
+    NAME:"Name",
     NEW_CALL:"New Call",
     PROFILES:"Profiles",
     HISTORY:"History",
@@ -38,6 +41,8 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    ADMIN:"Admin",
+    ACTION:"Action",
     SEX_0:"Männlich",
     SEX_1:"Weiblich",
     FORGOT_PASS:"Passwort vergessen?",
@@ -58,6 +63,7 @@ var Language = {
     OPEN:"Öffnen",
     LEAVE:"Verlassen",
     DESCRIPTION:"_NAME_ hat am _DATE_. Das Opfer ist _AGE_, _SEX_ und wiegt _WEIGHT_kg.",
+    NAME:"Name",
     NEW_CALL:"Neuer Anruf",
     PROFILES:"Profile",
     HISTORY:"Historie",
@@ -76,6 +82,8 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    ADMIN:"Admin",
+    ACTION:"Action",
     SEX_0:"Mâle",
     SEX_1:"Femelle",
     FORGOT_PASS:"Oublié votre mot de passe?",
@@ -96,6 +104,7 @@ var Language = {
     OPEN:"Ouvrir",
     LEAVE:"Quitter",
     DESCRIPTION:"_NAME_ a appelé le _DATE_. Le sujet est un _SEX_ âgé de _AGE_ ans et pesant _WEIGHT_kg.",
+    NAME:"Name",
     NEW_CALL:"Nouvel Appel",
     PROFILES:"Profiles",
     HISTORY:"Historique",

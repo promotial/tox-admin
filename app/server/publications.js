@@ -8,6 +8,11 @@ Meteor.publish('calls', function(userID) {
 });
 
 Meteor.publish("userData", function () {
+  if (this.userId) {
+    if (Meteor.users.findOne(this.userId).profile.admin) {
+      return Meteor.users.find({_id: this.userId});
+    }
+  }
   return Meteor.users.find({_id: this.userId},
       {fields: {profile:0}});
 });
@@ -15,7 +20,7 @@ Meteor.publish("userData", function () {
 Meteor.publish('userList', function() {
   if (this.userId) {
     if (Meteor.users.findOne(this.userId).profile.admin) {
-      return Meteor.users.find({},{fields: {email: 1,username:1}});
+      return Meteor.users.find({});
     }
   }
 });

@@ -1,16 +1,50 @@
 <template name="admin">
   <table class="gridtable">
     <tr>
-      <th>Email</th><th>Password</th><th>Name</th><th>Is Admin</th><th>Delete</th>
+      <th>{{multiLang 'EMAIL'}}</th><th>{{multiLang 'NAME'}}</th><th>{{multiLang 'PASSWORD'}}</th><th>{{multiLang 'ADMIN'}}</th><th>{{multiLang 'ACTION'}}</th>
     </tr>
+    {{#each users}}
+      {{> userItem}}
+    {{/each}}
     <tr>
-      <td>Text 1A</td><td class="password-table">Text 1B</td><td>Text 1C</td><td class="checkbox-table">Text 2D</td><td class="checkbox-table">Text 2D</td>
-    </tr>
-    <tr>
-      <td>Text 1A</td><td class="password-table">Text 1B</td><td>Text 1C</td><td class="checkbox-table">Text 2D</td><td class="checkbox-table">Text 2D</td>
-    </tr>
-    <tr>
-      <td>Text 1A</td><td class="password-table">Text 1B</td><td>Text 1C</td><td class="checkbox-table">Text 2D</td><td class="checkbox-table">Text 2D</td>
+      <td>
+          <input class="user-form" type="email" placeholder="{{multiLang 'EMAIL'}}">
+      </td>
+      <td class="name-table">
+          <input class="user-form" type="text" placeholder="{{multiLang 'NAME'}}">
+      </td>
+      <td class="password-table">
+          <input class="user-form" type="password" placeholder="{{multiLang 'PASSWORD'}}">
+      </td>
+      <td class="checkbox-table">
+          <input type="checkbox" name="admin">
+      </td>
+      <td class="checkbox-table">
+          <span aria-hidden="true" class="icon-plus-sign user-action"></span>
+      </td>
     </tr>
   </table>
+</template>
+
+<template name="userItem">
+    <tr>
+        <td>
+            <input class="user-form" type="email" value='{{getEmail emails}}' placeholder="{{multiLang 'EMAIL'}}">
+        </td>
+        <td class="name-table">
+            <input class="user-form" type="text" value='{{username}}' placeholder="{{multiLang 'NAME'}}">
+        </td>
+        <td class="password-table">
+            <input class="user-form password-form" type="password" disabled>
+        </td>
+        <td class="checkbox-table">
+            <input type="checkbox" name="admin" {{#if profile.admin}}checked{{/if}}>
+        </td>
+        <td class="checkbox-table">
+            <span aria-hidden="true" class="icon-trash user-action"></span>
+        </td>
+        <td class="checkbox-table">
+            <span aria-hidden="true" class="icon-trash user-action"></span>
+        </td>
+    </tr>
 </template>
