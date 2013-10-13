@@ -24,3 +24,10 @@ Meteor.publish('userList', function() {
     }
   }
 });
+
+Meteor.publish('tags', function() {
+  if (this.userId) {
+    return Tags.find({});
+  }
+});
+

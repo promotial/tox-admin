@@ -54,3 +54,18 @@ Template.settingsLang.helpers({
     return (Meteor.user().profile.language==="fr");
   }
 });
+
+Template.settingsTags.events({
+  'click .tags-save': function(e,t) {
+    var number = Number(e.currentTarget.id);
+    var value = trimInput(t.find('#val-'+number).value);
+    var id = Tags.findOne({number:number})._id;
+    Tags.update(id,{$set:{value:value}});
+  }
+});
+
+Template.settingsTags.helpers({
+  urgency: function(number) {
+    return Tags.findOne({number:number}).value;
+  }
+});

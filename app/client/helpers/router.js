@@ -1,5 +1,6 @@
 Router.configure({
   layoutTemplate: 'layout',
+
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {

@@ -1,8 +1,3 @@
-//trimInput function
-var trimInput = function(val) {
-  return val.replace(/^\s*|\s*$/g, "");
-};
-
 Template.admin.events({
   'click #new-user': function(e,t) {
     Accounts.createUser({

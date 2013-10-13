@@ -7,6 +7,7 @@ Meteor.startup(function() {
   L.Icon.Default.imagePath = '/leaflet/images';
   Meteor.subscribe('calls');
   Meteor.subscribe('userList');
+  Meteor.subscribe('tags');
   Deps.autorun(function () {
     if (Meteor.user()) {
       Session.set("language",Meteor.user().profile.language);

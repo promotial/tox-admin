@@ -1,6 +1,15 @@
 if (Meteor.users.find().count() === 0) {
+  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true,language:"en"} });
+  Accounts.createUser({email:"test@example.com",password:"test",username:"John Doe",profile:{admin:true,language:"en"} });
+  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false,language:"en"} });
+  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe",profile:{admin:false,language:"en"} });
+  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright",profile:{admin:true,language:"en"} });
+  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle",profile:{admin:true,language:"en"} });
+}
+
+if (Calls.find().count() === 0) {
   var randNum = function(a,b,decimal) {
-    if (decimal) {return (Math.random() * (b-a+1)) + a}; 
+    if (decimal) {return (Math.random() * (b-a+1)) + a};
     return (Math.floor(Math.random() * (b-a+1)) + a);
   };
 
@@ -13,7 +22,7 @@ if (Meteor.users.find().count() === 0) {
     now.setMinutes( randNum(1,59) );
     now.setHours( randNum(1,23) );
   };
-  
+
   for (var i=0; i <= 12; i++) {
     newDate();
     Calls.insert({
@@ -31,11 +40,11 @@ if (Meteor.users.find().count() === 0) {
       operator: false
     });
   }
+}
 
-  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test@example.com",password:"test",username:"John Doe",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false,language:"en"} });
-  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe",profile:{admin:false,language:"en"} });
-  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle",profile:{admin:true,language:"en"} });
+if (Tags.find().count() === 0) {
+  var values = ["Minor","Delayed","Immediate","Morgue"];
+  for (var i= 0; i <= 4; i++) {
+    Tags.insert({number:i,value:values[i]});
+  }
 }

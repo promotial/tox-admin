@@ -1,5 +1,6 @@
 var Language = {
   en: {
+    TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",
     CHANGE_LANGUAGE:"Change Language",
@@ -49,6 +50,7 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",
     CHANGE_LANGUAGE:"Change Language",
@@ -98,6 +100,7 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",
     CHANGE_LANGUAGE:"Change Language",

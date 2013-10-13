@@ -118,12 +118,19 @@ Template.callView.helpers({
   },
   call: function() {
     return Calls.findOne({_id:Session.get("openCall")});
+  },
+  urgency: function(number) {
+    return Tags.findOne({number:number}).value;
   }
 });
 
 Template.callView.preserve(['#call-view-title','#call-tab-view']);
 
 Template.callView.rendered = function() {
+  if (Session.equals("settings","menu")) {
+    Session.set("settings",false);
+  }
+
   var call = Calls.findOne({_id:Session.get("openCall")});
 
   document.getElementById("call-view-urgency").selectedIndex = call.urgency;

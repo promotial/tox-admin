@@ -1,6 +1,6 @@
 <template name="settings">
   {{#if settings}}
-    <div id="settings-box">
+    <div id="settings-box" class="tags-{{tags}}">
       {{#if menu}}
         {{> settingsMenu}}
       {{/if}}
@@ -49,5 +49,28 @@
   <div id="fr" class="settings-menuitem last-item-settings">
     <span style="margin-left: 34px;">{{multiLang 'FRENCH'}}</span>
     <input style="margin-left: 55px;" type="radio" name="language" {{#if fr}}checked{{/if}}>
+  </div>
+</template>
+
+<template name="settingsTags">
+  <div class="settings-title">
+    <span aria-hidden="true" class="icon-chevron-left settings-back"></span>
+    <span style="margin-right: 10px;">{{multiLang 'TRIAGE_TAGS'}}</span>
+  </div>
+  <div class="settings-menuitem">
+    <span aria-hidden="true" id="0" style="margin-top:15px;" class="icon-save tags-save"></span>
+    <input id="val-0" style="width:140px; margin-left:-20px;" value='{{urgency 0}}' type="text">
+  </div>
+  <div class="settings-menuitem">
+    <span aria-hidden="true" id="1" style="margin-top:14px;" class="icon-save tags-save"></span>
+    <input id="val-1" style="width:140px; margin-left:15px;" value='{{urgency 1}}' type="text">
+  </div>
+  <div class="settings-menuitem">
+    <span aria-hidden="true" id="2" style="margin-top:14px;" class="icon-save tags-save"></span>
+    <input id="val-2" style="width:140px; margin-left:15px;" value='{{urgency 2}}' type="text">
+  </div>
+  <div class="settings-menuitem last-item-settings">
+    <span aria-hidden="true" id="3" style="margin-top:13px;" class="icon-save tags-save"></span>
+    <input id="val-3" style="width:140px; margin-left:15px;" value='{{urgency 3}}' type="text">
   </div>
 </template>
