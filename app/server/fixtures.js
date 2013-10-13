@@ -1,4 +1,4 @@
-if (Calls.find().count() === 0) {
+if (Meteor.users.find().count() === 0) {
   var randNum = function(a,b,decimal) {
     if (decimal) {return (Math.random() * (b-a+1)) + a}; 
     return (Math.floor(Math.random() * (b-a+1)) + a);
@@ -30,7 +30,7 @@ if (Calls.find().count() === 0) {
       urgency: 0,
       operator: false
     });
-  };
+  }
 
   Accounts.createUser({email:"test@example.com",password:"test",username:"Danny Smith",profile:{admin:true} });
   Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false} });
