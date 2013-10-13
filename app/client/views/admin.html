@@ -8,19 +8,19 @@
     {{/each}}
     <tr>
       <td>
-          <input class="user-form" type="email" placeholder="{{multiLang 'EMAIL'}}">
+          <input id="new-email" class="user-form" type="email" placeholder="{{multiLang 'EMAIL'}}">
       </td>
       <td class="name-table">
-          <input class="user-form" type="text" placeholder="{{multiLang 'NAME'}}">
+          <input id="new-name" class="user-form" type="text" placeholder="{{multiLang 'NAME'}}">
       </td>
       <td class="password-table">
-          <input class="user-form" type="password" placeholder="{{multiLang 'PASSWORD'}}">
+          <input id="new-password" class="user-form" type="password" placeholder="{{multiLang 'PASSWORD'}}">
       </td>
       <td class="checkbox-table">
-          <input type="checkbox" name="admin">
+          <input id="new-admin" type="checkbox" name="admin">
       </td>
       <td class="checkbox-table">
-          <span aria-hidden="true" class="icon-plus-sign user-action"></span>
+          <span id="new-user" aria-hidden="true" class="icon-plus-sign user-action"></span>
       </td>
     </tr>
   </table>
@@ -29,22 +29,22 @@
 <template name="userItem">
     <tr>
         <td>
-            <input class="user-form" type="email" value='{{getEmail emails}}' placeholder="{{multiLang 'EMAIL'}}">
+            <input class="user-form" id="e{{_id}}" type="email" value='{{getEmail emails}}' placeholder="{{multiLang 'EMAIL'}}">
         </td>
         <td class="name-table">
-            <input class="user-form" type="text" value='{{username}}' placeholder="{{multiLang 'NAME'}}">
+            <input class="user-form" id="n{{_id}}" type="text" value='{{username}}' placeholder="{{multiLang 'NAME'}}">
         </td>
         <td class="password-table">
             <input class="user-form password-form" type="password" disabled>
         </td>
         <td class="checkbox-table">
-            <input type="checkbox" name="admin" {{#if profile.admin}}checked{{/if}}>
+            <input type="checkbox" id="a{{_id}}" name="admin" {{#if profile.admin}}checked{{/if}}>
         </td>
         <td class="checkbox-table">
-            <span aria-hidden="true" class="icon-trash user-action"></span>
+            <span aria-hidden="true" id="s{{_id}}" class="icon-save user-action save-changes"></span>
         </td>
         <td class="checkbox-table">
-            <span aria-hidden="true" class="icon-trash user-action"></span>
+            <span aria-hidden="true" id="d{{_id}}" class="icon-trash user-action delete-account"></span>
         </td>
     </tr>
 </template>

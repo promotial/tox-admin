@@ -4,7 +4,7 @@ Template.login.events({
     
     var trimInput = function(val) {
       return val.replace(/^\s*|\s*$/g, "");
-    }
+    };
     
     // retrieve the input field values
     var email = trimInput(t.find('#login-email').value);
