@@ -69,3 +69,15 @@ Template.settingsTags.helpers({
     return Tags.findOne({number:number}).value;
   }
 });
+
+Template.settingsPass.events({
+  'click .settings-save': function(e,t) {
+    var oldPassword = trimInput(t.find('#old-pass').value);
+    var newPassword = trimInput(t.find('#new-pass').value);
+    Accounts.changePassword(oldPassword, newPassword, function(err) {
+      t.find('#old-pass').value = "";
+      t.find('#new-pass').value = "";
+      t.find('#new-passc').value = "";
+    });
+  }
+});

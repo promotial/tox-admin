@@ -1,5 +1,8 @@
 var Language = {
   en: {
+    OLD_PASSWORD:"Old Password",
+    NEW_PASSWORD:"New Password",
+    CONFIRM_PASSWORD:"Confirm Password",
     TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",
@@ -50,6 +53,9 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    OLD_PASSWORD:"Old Password",
+    NEW_PASSWORD:"New Password",
+    CONFIRM_PASSWORD:"Confirm Password",
     TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",
@@ -100,6 +106,9 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    OLD_PASSWORD:"Old Password",
+    NEW_PASSWORD:"New Password",
+    CONFIRM_PASSWORD:"Confirm Password",
     TRIAGE_TAGS:"Triage Tags",
     SETTINGS:"Settings",
     LANGUAGE:"Language",

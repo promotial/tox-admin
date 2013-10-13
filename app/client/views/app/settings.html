@@ -74,3 +74,20 @@
     <input id="val-3" style="width:140px; margin-left:15px;" value='{{urgency 3}}' type="text">
   </div>
 </template>
+
+<template name="settingsPass">
+  <div class="settings-title">
+    <span aria-hidden="true" class="icon-chevron-left settings-back"></span>
+    <span style="margin-left: 2px;">{{multiLang 'PASSWORD'}}</span>
+    <span aria-hidden="true" class="icon-save settings-save"></span>
+  </div>
+  <div class="settings-menuitem">
+    <input id="old-pass" style="width:180px; margin-left:-20px;" placeholder="{{multiLang 'OLD_PASSWORD'}}" type="password">
+  </div>
+  <div class="settings-menuitem">
+    <input id="new-pass" style="width:180px; margin-left:15px;" placeholder="{{multiLang 'NEW_PASSWORD'}}" type="password">
+  </div>
+  <div class="settings-menuitem last-item-settings">
+    <input id="new-passc" style="width:180px; margin-left:15px;" placeholder="{{multiLang 'CONFIRM_PASSWORD'}}" type="password">
+  </div>
+</template>
