@@ -1,5 +1,13 @@
 var Language = {
   en: {
+    SETTINGS:"Settings",
+    LANGUAGE:"Language",
+    CHANGE_LANGUAGE:"Change Language",
+    EDIT_TAG:"Edit Triage Tags",
+    CHANGE_PASSWORD:"Change Password",
+    ENGLISH:"English",
+    FRENCH:"French",
+    GERMAN:"German",
     ADMIN:"Admin",
     ACTION:"Action",
     SEX_0:"Male",
@@ -41,6 +49,14 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    SETTINGS:"Settings",
+    LANGUAGE:"Language",
+    CHANGE_LANGUAGE:"Change Language",
+    EDIT_TAG:"Edit Triage Tags",
+    CHANGE_PASSWORD:"Change Password",
+    ENGLISH:"English",
+    FRENCH:"French",
+    GERMAN:"German",
     ADMIN:"Admin",
     ACTION:"Action",
     SEX_0:"Männlich",
@@ -82,6 +98,14 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    SETTINGS:"Settings",
+    LANGUAGE:"Language",
+    CHANGE_LANGUAGE:"Change Language",
+    EDIT_TAG:"Edit Triage Tags",
+    CHANGE_PASSWORD:"Change Password",
+    ENGLISH:"English",
+    FRENCH:"French",
+    GERMAN:"German",
     ADMIN:"Admin",
     ACTION:"Action",
     SEX_0:"Mâle",

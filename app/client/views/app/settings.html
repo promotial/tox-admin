@@ -1,23 +1,53 @@
 <template name="settings">
   {{#if settings}}
     <div id="settings-box">
-      {{> settingsMenu}}
+      {{#if menu}}
+        {{> settingsMenu}}
+      {{/if}}
+      {{#if lang}}
+        {{> settingsLang}}
+      {{/if}}
+      {{#if tags}}
+        {{> settingsTags}}
+      {{/if}}
+      {{#if pass}}
+        {{> settingsPass}}
+      {{/if}}
     </div>
   {{/if}}
 </template>
 
 <template name="settingsMenu">
   <div class="settings-title">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Settings
+    <span style="margin-left: 34px;">{{multiLang 'SETTINGS'}}</span>
     <span aria-hidden="true" class="icon-close settings-close"></span>
   </div>
   <div id="change-language" class="settings-menuitem">
-    &nbsp;&nbsp;&nbsp;&nbsp; Change Language
+    <span style="margin-left: 34px;">{{multiLang 'CHANGE_LANGUAGE'}}</span>
   </div>
   <div id="edit-tags" class="settings-menuitem">
-    &nbsp;&nbsp;&nbsp;&nbsp; Edit Triage Tags
+    <span style="margin-left: 34px;">{{multiLang 'EDIT_TAG'}}</span>
   </div>
-  <div id="change-password" class="settings-menuitem">
-    &nbsp;&nbsp;&nbsp;&nbsp; Change Password
+  <div id="change-password" class="settings-menuitem last-item-settings">
+    <span style="margin-left: 34px;">{{multiLang 'CHANGE_PASSWORD'}}</span>
+  </div>
+</template>
+
+<template name="settingsLang">
+  <div class="settings-title">
+    <span aria-hidden="true" class="icon-chevron-left settings-back"></span>
+    <span style="margin-right: 10px;">{{multiLang 'LANGUAGE'}}</span>
+  </div>
+  <div id="en" class="settings-menuitem">
+    <span>{{multiLang 'ENGLISH'}}</span>
+    <input style="margin-left: 50px;" type="radio" name="language" {{#if en}}checked{{/if}}>
+  </div>
+  <div id="de" class="settings-menuitem">
+    <span style="margin-left: 34px;">{{multiLang 'GERMAN'}}</span>
+    <input style="margin-left: 48px;" type="radio" name="language" {{#if de}}checked{{/if}}>
+  </div>
+  <div id="fr" class="settings-menuitem last-item-settings">
+    <span style="margin-left: 34px;">{{multiLang 'FRENCH'}}</span>
+    <input style="margin-left: 55px;" type="radio" name="language" {{#if fr}}checked{{/if}}>
   </div>
 </template>
