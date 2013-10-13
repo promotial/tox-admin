@@ -1,0 +1,22 @@
+<template name="settings">
+  {{#if settings}}
+    <div id="settings-box">
+      {{> settingsMenu}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="settingsMenu">
+  <div class="settings-title">
+    &nbsp;&nbsp;Settings
+  </div>
+  <div id="change-language" class="settings-menuitem">
+    &nbsp;&nbsp;&nbsp;&nbsp;  Change Language
+  </div>
+  <div id="edit-tags" class="settings-menuitem">
+    &nbsp;&nbsp;&nbsp;&nbsp;  Edit Triage Tags
+  </div>
+  <div id="change-password" class="settings-menuitem">
+    &nbsp;&nbsp;&nbsp;&nbsp;  Change Password
+  </div>
+</template>

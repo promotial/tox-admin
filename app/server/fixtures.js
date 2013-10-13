@@ -32,9 +32,10 @@ if (Meteor.users.find().count() === 0) {
     });
   }
 
-  Accounts.createUser({email:"test@example.com",password:"test",username:"Danny Smith",profile:{admin:true} });
+  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true} });
+  Accounts.createUser({email:"test@example.com",password:"test",username:"John Doe",profile:{admin:true} });
   Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false} });
   Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe",profile:{admin:false} });
   Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright",profile:{admin:true} });
   Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle",profile:{admin:true} });
-};
+}

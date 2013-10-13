@@ -1,10 +1,3 @@
-Meteor.startup(function() {
-  Session.setDefault("closedCalls","hide");
-  Session.setDefault("openList","pending");
-  Session.setDefault("openCall", null);
-  L.Icon.Default.imagePath = '/leaflet/images';
-});
-
 Template.callList.helpers({
   calls: function() {
     if (Session.equals("openList","pending")) {

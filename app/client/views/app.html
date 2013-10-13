@@ -1,19 +1,21 @@
 <template name="app">
   <div class="app">
-	<!-- navbar -->
-  {{> topNav}}
+    <!-- navbar -->
+    {{> topNav}}
 
-  <div id="call-tabs">
-	  <!-- call list-->
-	  {{> callList }}
-     
-    <!-- call view tab -->
-    {{yield 'callTab'}}
+    <!-- settings -->
+    {{> settings}}
 
-    <!-- closed calls -->
-    {{> closedCalls}}
-  </div>
+    <div id="call-tabs">
+      <!-- call list-->
+      {{> callList }}
 
-	<!-- footer -->
+      <!-- call view tab -->
+      {{yield 'callTab'}}
+
+      <!-- closed calls -->
+      {{> closedCalls}}
+    </div>
+
   </div>
 </template>

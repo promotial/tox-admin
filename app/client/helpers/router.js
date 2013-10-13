@@ -2,7 +2,6 @@ Router.configure({
   layoutTemplate: 'layout',
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
-    Session.set("language","en");
     if (!Meteor.user()) {
       // render the login template but keep the url in the browser the same
       this.render('login');
