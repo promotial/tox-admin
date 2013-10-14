@@ -90,7 +90,12 @@ Template.callItem.events({
       if (Session.equals("openCall",this._id)) {
         Router.go("/");
       }
-    }
+    } else if (this.status === "closed") {
+      Calls.remove(this._id);
+      if (Session.equals("openCall",this._id)) {
+        Router.go("/");
+      }
+    };
   },
   "click #call-item-assigned-action": function() {
     if (this.status === "active") {

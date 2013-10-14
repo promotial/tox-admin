@@ -3,6 +3,9 @@ Calls = new Meteor.Collection('calls');
 Calls.allow({
   update: function(userId,doc,fieldNames,modifier) {   
     return (_.without(fieldNames,'status','urgency','operator').length===0);
+  },
+  remove: function(userId,doc) {
+    return true;
   }
 });
 
@@ -19,6 +22,10 @@ Calls.deny({
     if (status==="pending") {if (! (operator===false) ) {return true}}; 
     if (status==="active" && doc.status !== "closed") {if (! (operator===you) ) {return true}}; 
     if (status==="closed") {if (! (doc.operator===you) ) {return true}}; 
+    return false;
+  },
+  remove: function(userId,doc) {
+    if (!userId) {return true};
     return false;
   }
 });
