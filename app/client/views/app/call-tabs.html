@@ -88,10 +88,13 @@
     </div>
     <!-- caller location -->
     <div id="call-view-map" class="call-view-box"></div>
-    <!-- call description -->
+    <!-- call comments -->
     <div id="call-view-comments" class="call-view-box"> 
       <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'COMMENTS'}}</div> </div>
-    </div>
+      <div class="call-view-box-title">
+        <div class="send-btn" ><span style="font-size:20px" aria-hidden=true class="icon-bubbles"></span></div>
+        <input class="call-view-comments-input" type="text" placeholder="{{multiLang 'ENTER_COMMENT'}}">
+      </div>
   </div>
   {{/with}}
 </template>

@@ -1,5 +1,6 @@
 var Language = {
   en: {
+    ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
     CONFIRM_PASSWORD:"Confirm Password",
@@ -53,6 +54,7 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
     CONFIRM_PASSWORD:"Confirm Password",
@@ -106,6 +108,7 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
     CONFIRM_PASSWORD:"Confirm Password",
