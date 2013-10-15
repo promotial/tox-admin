@@ -1,4 +1,7 @@
 Template.settings.events({
+  'click #settings-box': function(e) {
+    return false;
+  },
   'click .settings-close': function() {
     Session.set("settings",false);
   },
