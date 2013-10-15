@@ -1,16 +1,31 @@
+userDocHandle = {
+  ready: function () {
+    if(!Accounts.loginServicesConfigured())
+      return false;
+    if(Meteor.loggingIn()) {
+      return false;
+    }
+    return true;
+  }
+};
+
 Router.configure({
   layoutTemplate: 'layout',
 
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {
+
       // render the login template but keep the url in the browser the same
       this.render('login');
 
       // stop the rest of the before hooks and the action function 
       this.stop();
     }
-  }
+  },
+
+  //check user isn't logging in when doing login checks
+  waitOn: function() {return userDocHandle;}
 });
 
 Router.map(function () {
