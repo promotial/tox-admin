@@ -12,9 +12,10 @@ Template.topNav.events({
     Router.go("/");
   },
   //settings button
-  'click #settings-btn': function () {
-    if (Session.get("settings")) {
-      Session.set("settings",false);
-    } else {Session.set("settings","menu");}
+  'click #settings-btn': function (e) {
+    if (!Session.get("settings")) {
+      Session.set("settings","menu");
+      return false;
+    }
   }
 });
