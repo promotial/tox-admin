@@ -1,5 +1,5 @@
 Template.app.events({
-  'click .app': function(e) {
+  'click .app': function() {
     Session.set("settings",false);
   }
 });

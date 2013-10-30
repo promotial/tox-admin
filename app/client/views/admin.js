@@ -4,7 +4,7 @@ Template.admin.events({
       username: trimInput(t.find('#new-name').value),
       email: trimInput(t.find('#new-email').value),
       password: trimInput(t.find('#new-password').value),
-      profile: {admin:t.find('#new-admin').checked,language:"en"}
+      profile: {admin:t.find('#new-admin').checked,language:"de"}
     });
 
     //clear inputs
