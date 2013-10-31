@@ -72,6 +72,12 @@ Template.callItem.helpers({
       return true;
     }
     return false;
+  },
+  selected: function(id) {
+    if (Session.get("openCall") === id) {
+      return true;
+    }
+    return false;
   }
 });
 

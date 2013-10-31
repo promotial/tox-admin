@@ -14,11 +14,12 @@ Handlebars.registerHelper('calendarTime', function(date) {
 Handlebars.registerHelper('getDescription', function(name,date,age,sex,weight) {
   moment.lang(Session.get("language"));
   date = moment(date).format('h:mmA [on the] Do [of] MMMM YYYY');
+  var sexName = multiLang("SEX_"+sex);
   var description = multiLang("DESCRIPTION");
   description = description.replace("_NAME_",name, "gi");
   description = description.replace("_DATE_",date, "gi");
   description = description.replace("_AGE_",age, "gi");
-  description = description.replace("_SEX_",sex, "gi");
+  description = description.replace("_SEX_",sexName, "gi");
   description = description.replace("_WEIGHT_",weight, "gi");
   return description;
 });

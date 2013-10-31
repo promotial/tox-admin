@@ -28,7 +28,7 @@
 </template>
 
 <template name="callItem">
-  <div class="call-list-item {{#if notClosed status}} urgency-{{urgency}} {{/if}}">
+  <div class="call-list-item {{#if notClosed status}} urgency-{{urgency}} {{/if}} {{#if selected _id}} call-item-selected {{/if}}">
     <!-- action button -->
     <a id="call-item-action-btn" class="call-item-btn call-item-btn-{{status}}-action call-item-btn-{{status}}-{{myCall operator}}"  href="">{{action status}}</a>
     <!-- view button -->
