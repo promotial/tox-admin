@@ -38,6 +38,7 @@ if (Calls.find().count() === 0) {
       weight: ''+randNum(15,98),
       status: "pending",
       urgency: 0,
+      comments: [],
       operator: false
     });
   }

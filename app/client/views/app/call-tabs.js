@@ -160,8 +160,10 @@ Template.callView.events({
       $set: {urgency: document.getElementById("call-view-urgency").selectedIndex}
     });
   },
-  "click .send-btn": function() {
-
+  "click .send-btn": function(e,t) {
+    var commentsInput = t.find('.call-view-comments-input')
+    Meteor.call("newComment",commentsInput.value,Session.get("openCall"));
+    commentsInput.value = "";
   }
 });
 

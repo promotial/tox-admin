@@ -44,10 +44,11 @@ Meteor.methods({
       params.date = new Date;
       params.timestamp = params.date.getTime();
       params.status = "pending";
+      params.comments = [];
       params.urgency = 0;
       params.operator = false;
 
-      Calls.insert(_.pick(params, 'timestamp','user','date','locShare','loc','name','number','age','sex','weight','status','urgency','operator'));
+      Calls.insert(_.pick(params, 'timestamp','user','date','locShare','loc','name','number','age','sex','weight','status','urgency','comments','operator'));
 
     } else {throw new Meteor.Error(401, "ERROR!");}
   },
@@ -56,10 +57,13 @@ Meteor.methods({
     if (Calls.find(id).status === "pending") {throw new Meteor.Error(403,"ERROR!")}
     if (!this.userId === Calls.find(id).operator) {throw new Meteor.Error(401,"Access Denied!")};
     check(message,String);
-    var params = {};
-    params.message = message;
-    params.date = new Date;
-    params.timestamp = params.date.getTime();
-    Calls.update(id,{$set:params});
+    if (message.length > 0) {
+      var params = {};
+      params.message = message;
+      params.date = new Date;
+      params.timestamp = params.date.getTime();
+      Calls.update(id,{$push:{comments:params}});
+    }
+    throw new Meteor.Error(400,"Message can't be empty!");
   }
 });
