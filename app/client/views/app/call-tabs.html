@@ -94,7 +94,9 @@
       <div class="call-view-box-title" style=height:35px;font-size:24px;x"> <div style="padding:5px;">{{multiLang 'COMMENTS'}}</div> </div>
       <!-- comments list -->
       <div class="call-view-comments-list">
-
+        {{#each comments}}
+          {{> commentsItem}}
+        {{/each}}
       </div>
       <!-- comments input -->
       <div class="call-view-box-title">
@@ -104,6 +106,12 @@
     </div>
   </div>
   {{/with}}
+</template>
+
+<template name="commentsItem">
+  <div class="comments-list-item">
+    {{calendarTime date}}: {{message}}
+  </div>
 </template>
 
 <template name="noCallView">

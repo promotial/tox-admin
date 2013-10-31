@@ -162,8 +162,13 @@ Template.callView.events({
   },
   "click .send-btn": function(e,t) {
     var commentsInput = t.find('.call-view-comments-input')
-    Meteor.call("newComment",commentsInput.value,Session.get("openCall"));
-    commentsInput.value = "";
+    Meteor.call("newComment",commentsInput.value,Session.get("openCall"),
+      function(e,r) {
+        if (e) {
+          console.log(e.reason);
+        } else {commentsInput.value = "";}
+      }
+    );
   }
 });
 
