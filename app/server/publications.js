@@ -1,9 +1,11 @@
 Meteor.publish('calls', function(userID) {
   if (this.userId) {
     return Calls.find({},{fields: {user: 0}});
-  } else {
+  } else if (userID) {
     check(userID, String);
     return Calls.find({user:userID}, [{fields: {operator: 0, status: 0}},{ sort: [["timestamp","asc"]] }]);
+  } else {
+    return Calls.find({user:"foo"});
   }
 });
 
