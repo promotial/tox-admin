@@ -56,8 +56,11 @@ Router.map(function () {
       //render app and then call view template
       this.render("app");
       this.render('callView', { to: 'callTab' });
+    },
+    waitOn: function() {
+      return Meteor.subscribe('calls');
     }
-  });
+});
   
   //routes "/" to app 
   this.route('app', {

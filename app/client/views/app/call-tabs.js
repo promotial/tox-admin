@@ -126,6 +126,9 @@ Template.callView.helpers({
   },
   urgency: function(number) {
     return Tags.findOne({number:number}).value;
+  },
+  isPending: function(status) {
+    return (status==="pending");
   }
 });
 
@@ -156,6 +159,9 @@ Template.callView.events({
     Calls.update(this._id, {
       $set: {urgency: document.getElementById("call-view-urgency").selectedIndex}
     });
+  },
+  "click .send-btn": function() {
+
   }
 });
 
