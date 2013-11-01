@@ -63,7 +63,10 @@ Router.map(function () {
   //routes "/" to app 
   this.route('app', {
     path: '/',
-    yieldTemplates: { 'noCallView': {to: 'callTab'} }
+    yieldTemplates: { 'noCallView': {to: 'callTab'} },
+    before: function() {
+      Session.set("openCall", null);
+    }
   });
 
   //redirect all other urls to app ("/")
