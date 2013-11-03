@@ -41,7 +41,7 @@ Template.admin.events({
 });
 
 Template.admin.helpers({
-  users: Meteor.users.find({_id:{$not:Meteor.userId()}})
+  users: Meteor.users.find({})
 });
 
 Template.userItem.events({
@@ -51,15 +51,23 @@ Template.userItem.events({
     var params = {
       emails: [{address:trimInput(t.find('#e'+id).value)}],
       username: trimInput(t.find('#n'+id).value),
-      profile: {admin:t.find('#a'+id).checked}
-    };
+      profile: {admin:t.find('#a'+id).checked,language:t.find('.'+id).id}
+    }
 
     Meteor.users.update(id,{$set:params});
+
     return false;
   },
-  'click .delete-account': function(e) {
+  'click .delete-account': function(e,t) {
     var id = e.currentTarget.id.substr(1);
-    Meteor.users.remove(id);
+    var name = Meteor.users.findOne({_id:id}).username;
+    Meteor.users.remove(id, function(err) {
+      if (err) {
+        Session.set("error",{message:(err.reason != null) ? err.reason:"Unknown Error",show:true});
+      } else {
+        Meteor.call('removedUser',name);
+      }
+    });
     return false;
   }
 });

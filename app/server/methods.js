@@ -74,5 +74,10 @@ Meteor.methods({
         profile: params.profile
       })
     }
+  },
+  'removedUser': function(name) {
+    check(name,String);
+    Calls.update({operator:name,status:"active"},{$set:{operator:false,status:"pending"}},{multi:true});
   }
 });
+

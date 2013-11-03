@@ -35,7 +35,7 @@
             <input class="user-form" id="n{{_id}}" type="text" value='{{username}}' placeholder="{{multiLang 'NAME'}}">
         </td>
         <td class="password-table">
-            <input class="user-form password-form" type="password" disabled>
+            <input id="{{profile.language}}" class="user-form password-form {{_id}}" type="password" disabled>
         </td>
         <td class="checkbox-table">
             <input type="checkbox" id="a{{_id}}" name="admin" {{#if profile.admin}}checked{{/if}}>
