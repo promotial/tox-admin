@@ -4,6 +4,7 @@ Meteor.startup(function() {
   Session.setDefault("openList","pending");
   Session.setDefault("language","de");
   Session.setDefault("openCall", null);
+  Session.set("error",{message:"No Errors",show:false})
   Session.set("settings",false);
   var now = new Date();
   Session.set("began",now.getTime());
@@ -35,6 +36,24 @@ Meteor.startup(function() {
     });
     if (latest.status === "pending" && latest.timestamp > Session.get("began"))
       alertSound.play();
+  });
+
+  //Reset errors after 6 seconds
+  Deps.autorun(function () {
+    var errorVal = Session.get("error");
+
+    var hideError = function() {
+      var errorVal = Session.get("error");
+      errorVal.show = false;
+      Session.set("error",errorVal);
+    }
+
+    if (errorVal.show === true) {
+      if (errorTimeout) {
+        Meteor.clearTimeout(errorTimeout);
+      }
+      var errorTimeout = Meteor.setTimeout(hideError, 2500)
+    }
   });
 });
 

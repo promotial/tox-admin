@@ -1,11 +1,14 @@
 <template name="login">
+  <div id="alert" class="{{#unless error.show}}alert-hide{{/unless}}">
+    {{error.message}}
+  </div>
   <div class="login">
     <form id="login-form">
       <div id="login-title">Tox Operator</div>
 
       <fieldset id="inputs">
-        <input id="login-email" type="email" placeholder="{{multiLang 'EMAIL'}}" autofocus required>
-        <input id="login-password" type="password" placeholder="{{multiLang 'PASSWORD'}}" required>
+        <input id="login-email" type="email" placeholder="{{multiLang 'EMAIL'}}" autofocus>
+        <input id="login-password" type="password" placeholder="{{multiLang 'PASSWORD'}}">
       </fieldset>
 
       <fieldset id="actions">
