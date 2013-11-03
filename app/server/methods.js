@@ -1,7 +1,7 @@
 Meteor.methods({
   newCall: function (params) {
     if (params.secret==="r4nx4NXCZsMEIPV8FJplpnIMKg28qP0HNpY2tXOl0nXzmvVLohr2HDYpyrT1w4Y") {
-      if (!(params.user)) {throw new Meteor.Error(401, "Fill in all values");}
+      if (!(params.user)) {throw new Meteor.Error(401, "ERROR!");}
 
       if (params.number && params.number !== "") {
         check(params.number, String);

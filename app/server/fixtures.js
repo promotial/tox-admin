@@ -1,13 +1,8 @@
 if (Meteor.users.find().count() === 0) {
-  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test@example.com",password:"test",username:"John Doe",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test1@example.com",password:"test",username:"Robert Lark",profile:{admin:false,language:"en"} });
-  Accounts.createUser({email:"test2@example.com",password:"test",username:"Alex Doe",profile:{admin:false,language:"en"} });
-  Accounts.createUser({email:"test3@example.com",password:"test",username:"Tim Wright",profile:{admin:true,language:"en"} });
-  Accounts.createUser({email:"test4@example.com",password:"test",username:"Daniel Bodle",profile:{admin:true,language:"en"} });
+  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true,language:"de"} });
 }
 
-if (Calls.find().count() === 0) {
+/*if (Calls.find().count() === 0) {
   var randNum = function(a,b,decimal) {
     if (decimal) {return (Math.random() * (b-a+1)) + a};
     return (Math.floor(Math.random() * (b-a+1)) + a);
@@ -43,6 +38,7 @@ if (Calls.find().count() === 0) {
     });
   }
 }
+*/
 
 if (Tags.find().count() === 0) {
   var values = ["Minor","Delayed","Immediate","Morgue"];

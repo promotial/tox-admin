@@ -13,10 +13,10 @@ Meteor.publish("userData", function () {
   if (this.userId) {
     if (Meteor.users.findOne(this.userId).profile.admin) {
       return Meteor.users.find({_id: this.userId});
+    } else {
+      return Meteor.users.find({_id: this.userId},{fields: {'profile.admin':0}});
     }
   }
-  return Meteor.users.find({_id: this.userId},
-      {fields: {'profile.admin':0}});
 });
 
 Meteor.publish('userList', function() {
