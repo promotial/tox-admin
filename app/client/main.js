@@ -64,5 +64,3 @@ Template.layout.helpers({
 });
 
 Template.layout.preserve(['#alert']);
-
-
