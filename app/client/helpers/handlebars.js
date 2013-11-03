@@ -16,6 +16,12 @@ Handlebars.registerHelper('getDescription', function(name,date,age,sex,weight) {
   date = moment(date).format('h:mmA [on the] Do [of] MMMM YYYY');
   var sexName = multiLang("SEX_"+sex);
   var description = multiLang("DESCRIPTION");
+  if (age === false) {
+    age="?";
+  }
+  if (weight === false) {
+    weight="? ";
+  }
   description = description.replace("_NAME_",name, "gi");
   description = description.replace("_DATE_",date, "gi");
   description = description.replace("_AGE_",age, "gi");

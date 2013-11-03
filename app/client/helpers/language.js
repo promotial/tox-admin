@@ -1,5 +1,6 @@
 var Language = {
   en: {
+    NOT_AVAILABLE:"Not Available",
     ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
@@ -54,6 +55,7 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    NOT_AVAILABLE:"Nicht Verfügbar",
     ENTER_COMMENT:"Kommentar eingeben",
     OLD_PASSWORD:"Altes Passwort",
     NEW_PASSWORD:"Neues Passwort",
@@ -108,6 +110,7 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    NOT_AVAILABLE:"Pas Dispo",
     ENTER_COMMENT:"Saisir Commentaire",
     OLD_PASSWORD:"Ancien mot de passe",
     NEW_PASSWORD:"Nouveau mot de passe",

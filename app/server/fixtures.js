@@ -1,5 +1,5 @@
 if (Meteor.users.find().count() === 0) {
-  Accounts.createUser({email:"admin@tox.com",password:"test",username:"Admin",profile:{admin:true,language:"de"} });
+  Accounts.createUser({email:"admin@tox.com",password:"admin",username:"Admin",profile:{admin:true,language:"de"} });
 }
 
 /*if (Calls.find().count() === 0) {
@@ -27,18 +27,17 @@ if (Meteor.users.find().count() === 0) {
       locShare: true,
       loc: {lat: randNum(47,48,true), lon: randNum(8,9,true)},
       name: names[randNum(0,names.length-1)],
-      number: ''+randNum(1000000009,9999999999),
-      age: '' + randNum(4,94),
+      number: false,
+      age: false,
       sex: randNum(0,1),
-      weight: ''+randNum(15,98),
+      weight: false,
       status: "pending",
       urgency: 0,
       comments: [],
       operator: false
     });
   }
-}
-*/
+}*/
 
 if (Tags.find().count() === 0) {
   var values = ["Minor","Delayed","Immediate","Morgue"];

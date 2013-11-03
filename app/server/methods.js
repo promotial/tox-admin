@@ -1,18 +1,16 @@
 Meteor.methods({
   newCall: function (params) {
     if (params.secret==="r4nx4NXCZsMEIPV8FJplpnIMKg28qP0HNpY2tXOl0nXzmvVLohr2HDYpyrT1w4Y") {
-      if (!(params.user)) {throw new Meteor.Error(401, "ERROR!");}
-
       if (params.number && params.number !== "") {
         check(params.number, String);
-      } else {throw new Meteor.Error(400, "Fill in all values");}
+      } else {params.number=false}
 
       if (params.age !== null && params.age !== undefined && params.age !== "") {
         check(params.age, String);
         if (parseInt(params.age,10) > 140) {
           throw new Meteor.Error(400, "Enter real age");
         }
-      } else {throw new Meteor.Error(400, "Fill in all values");}
+      } else {params.age=false}
 
       if (params.sex !== null && params.sex !== undefined) {
         check(params.sex, Match.Integer);
@@ -26,18 +24,20 @@ Meteor.methods({
         if (parseInt(params.weight,10) > 900) {
           throw new Meteor.Error(400, "Enter real weight");
         }
-      } else {throw new Meteor.Error(400, "Fill in all values");}
+      } else {params.weight=false}
 
       if (params.locShare !== null && params.locShare !== undefined) {
         check(params.locShare, Boolean);
         if (params.locShare) {
-          check(params.loc,{loc:String,lat:String})
-        } else {if (params.loc !== false) {throw new Meteor.Error(400, "ERROR!");} }
+          check(params.loc,{lon:Number,lat:Number})
+        } else {if (params.loc !== false) {throw new Meteor.Error(400, "Could Not Access Location");} }
       } else {throw new Meteor.Error(400, "ERROR!");}
+
+      params.user=this.userId;
 
       if (params.name && params.name.length > 0) {
         check(params.name, String);
-      } else {throw new Meteor.Error(400, "Fill in all values");}
+      } else {throw new Meteor.Error(400, "ERROR!");}
 
       params.date = new Date;
       params.timestamp = params.date.getTime();

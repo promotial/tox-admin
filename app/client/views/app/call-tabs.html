@@ -34,7 +34,7 @@
     <!-- view button -->
     <a id="call-item-view-btn" class="call-item-btn call-item-btn-{{status}}-view" href={{pathFor 'callView'}}>{{multiLang 'VIEW'}}</a>
     <!-- display callers number -->
-    <div id="call-item-number" class="call-item-btn">{{number}}</div>
+    <div id="call-item-number" class="call-item-btn">{{#if number}} {{number}} {{else}} {{multiLang 'NOT_AVAILABLE'}} {{/if}}</div>
     <!-- display call date -->
     <div id="call-item-date" class="call-item-btn">{{callTimeAgo date}}</div>
 
@@ -56,7 +56,7 @@
   {{#with call}}
   <!-- tab title -->
   <div id="call-view-title" class="call-list-button {{shrink}}">
-    <div class="call-view-title-text">{{number}}</div>
+    <div class="call-view-title-text">{{#if number}} {{number}} {{else}} {{multiLang 'NOT_AVAILABLE'}} {{/if}}</div>
     <select id="call-view-urgency">
       <option>None</option>
       <option>{{urgency 0}}</option>
