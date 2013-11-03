@@ -29,11 +29,3 @@ Template.login.events({
     return false;
   }
 });
-
-Template.login.helpers({
-  error: function() {
-    return Session.get("error");
-  }
-});
-
-Template.login.preserve(['#alert']);

@@ -1,6 +1,14 @@
+var defaultLanguage = "de";
+
 var Language = {
   en: {
-    NOT_AVAILABLE:"Not Available",
+    EDIT_PROFILE:"Edit Profile",
+    ADD:"Add",
+    YES:"Yes",
+    NO:"No",
+    REGISTER:"Register",
+    CANCEL:"Cancel",
+    BACK:"Back",
     ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
@@ -16,8 +24,8 @@ var Language = {
     GERMAN:"German",
     ADMIN:"Admin",
     ACTION:"Action",
-    SEX_0:"male",
-    SEX_1:"female",
+    SEX_0:"Male",
+    SEX_1:"Female",
     FORGOT_PASS:"Forgot your password?",
     PASSWORD:"Password",
     LOGIN:"Login",
@@ -41,13 +49,11 @@ var Language = {
     PROFILES:"Profiles",
     HISTORY:"History",
     ABOUT:"About",
-    LOC_SHARE:"Location Sharing",
+    SHARE_LOCATION:"Share Location",
     AGE:"Age",
     WEIGHT:"Weight",
     WHEN:"When",
     MOBILE:"Mobile",
-    ATTACH_PHOTOS:"Attach Photos",
-    SAVED_PROFILES:"Saved Profiles",
     NEW_PROFILE:"New Profile",
     GENDER:"Gender",
     DELETE:"Delete",
@@ -55,7 +61,13 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
-    NOT_AVAILABLE:"Nicht Verfügbar",
+    EDIT_PROFILE:"Profil Editieren",
+    ADD:"Erst",
+    YES:"Ja",
+    NO:"Nein",
+    REGISTER:"Anmelden",
+    CANCEL:"Storno",
+    BACK:"Zur.",
     ENTER_COMMENT:"Kommentar eingeben",
     OLD_PASSWORD:"Altes Passwort",
     NEW_PASSWORD:"Neues Passwort",
@@ -71,8 +83,8 @@ var Language = {
     GERMAN:"Deutsch",
     ADMIN:"Admin",
     ACTION:"Aktion",
-    SEX_0:"männlich",
-    SEX_1:"weiblich",
+    SEX_0:"Männlich",
+    SEX_1:"Weiblich",
     FORGOT_PASS:"Passwort vergessen?",
     PASSWORD:"Passwort",
     LOGIN:"Login",
@@ -96,25 +108,29 @@ var Language = {
     PROFILES:"Profil",
     HISTORY:"Historie",
     ABOUT:"Information",
-    LOC_SHARE:"Standortversand",
+    SHARE_LOCATION:"Share Location",
     AGE:"Alter",
     WEIGHT:"Gewicht",
     WHEN:"Wann",
     MOBILE:"Handy",
-    ATTACH_PHOTOS:"Bilder anhängen",
-    SAVED_PROFILES:"Gespeicherte Profile",
     NEW_PROFILE:"Neues Profil",
     GENDER:"Geschlecht",
     DELETE:"Löschen",
-    SAVE:"Speichern",
+    SAVE:"Verw.",
     INITIATE_CALL:"Anrufen"
   },
   fr: {
-    NOT_AVAILABLE:"Pas Dispo",
+    EDIT_PROFILE:"Editer Profile",
+    ADD:"Ajout",
+    YES:"Oui",
+    NO:"Non",
+    REGISTER:"Inscrire",
+    CANCEL:"Annuler",
+    BACK:"Ret.",
     ENTER_COMMENT:"Saisir Commentaire",
     OLD_PASSWORD:"Ancien mot de passe",
     NEW_PASSWORD:"Nouveau mot de passe",
-    CONFIRM_PASSWORD:"Confirmer mot de passe",
+    CONFIRM_PASSWORD:"Confirmer",
     TRIAGE_TAGS:"Tags de triage",
     SETTINGS:"Reglages",
     LANGUAGE:"Langues",
@@ -126,8 +142,8 @@ var Language = {
     GERMAN:"Deutsch",
     ADMIN:"Admin",
     ACTION:"Action",
-    SEX_0:"mâle",
-    SEX_1:"femelle",
+    SEX_0:"Mâle",
+    SEX_1:"Femelle",
     FORGOT_PASS:"Oublié votre mot de passe?",
     PASSWORD:"Mot de passe",
     LOGIN:"Login",
@@ -151,26 +167,37 @@ var Language = {
     PROFILES:"Profils",
     HISTORY:"Historique",
     ABOUT:"A Propos",
-    LOC_SHARE:"Partage de position",
+    SHARE_LOCATION:"Share Location",
     AGE:"Âge",
     WEIGHT:"Poids",
     WHEN:"Quand",
     MOBILE:"Mobile",
-    ATTACH_PHOTOS:"Attacher Photos",
-    SAVED_PROFILES:"Profils Sauvegardés",
     NEW_PROFILE:"Nouveau Profil",
     GENDER:"Sex",
     DELETE:"Supprimer",
-    SAVE:"Sauvegarder",
+    SAVE:"Util.",
     INITIATE_CALL:"Appeler"
   }
 };
 
 multiLang = function(baseString) {
-  return Language[Session.get("language")][baseString];
+  if (Meteor.user()) {
+    Session.set("language",Meteor.user().profile.language);
+  }
+  if (Session.get("language")) {
+    return Language[Session.get("language")][baseString];
+  } else {
+    Session.set("language",defaultLanguage);
+  }
 };
 
-Handlebars.registerHelper('multiLang', function(baseString) {
+Handlebars.registerHelper('multiLang', function(baseString,caps) {
+  if (caps === "UPPER") {
+    return multiLang(baseString).toUpperCase();
+  }
+  else if (caps === "LOWER") {
+    return multiLang(baseString).toLowerCase();
+  };
   return multiLang(baseString);
 });
 

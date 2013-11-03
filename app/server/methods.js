@@ -63,5 +63,16 @@ Meteor.methods({
       Calls.update(id,{$push:{comments:params}});
     }
     throw new Meteor.Error(400,"Message can't be empty!");
+  },
+  newUser: function (params,id) {
+    check(params,{username:String,email:String,password:String,profile:{admin:Boolean,language:String}})
+    if (params.username !== "" && params.email !== "" && params.password !== "" && params.profile.language === "de") {
+      Accounts.createUser({
+        username: params.username,
+        email: params.email,
+        password: params.password,
+        profile: params.profile
+      })
+    }
   }
 });

@@ -9,8 +9,8 @@ Meteor.users.allow({
 
 Meteor.users.deny({
   remove: function (userId,doc) {
-    if (!userId) {return true};
-    if (doc._id === userId) {return true};
+    if (!userId) {return true;}
+    if (doc._id === userId) {return true;}
     return false;
   }
 });

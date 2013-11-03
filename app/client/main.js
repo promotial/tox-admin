@@ -57,4 +57,12 @@ Meteor.startup(function() {
   });
 });
 
+Template.layout.helpers({
+  error: function() {
+    return Session.get("error");
+  }
+});
+
+Template.layout.preserve(['#alert']);
+
 

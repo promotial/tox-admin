@@ -1,17 +1,42 @@
 Template.admin.events({
   'click #new-user': function(e,t) {
-    Accounts.createUser({
-      username: trimInput(t.find('#new-name').value),
-      email: trimInput(t.find('#new-email').value),
-      password: trimInput(t.find('#new-password').value),
-      profile: {admin:t.find('#new-admin').checked,language:"de"}
+    params = {};
+    params.username = trimInput(t.find('#new-name').value);
+    params.email = trimInput(t.find('#new-email').value);
+    params.password = trimInput(t.find('#new-password').value);
+    params.profile = {admin:t.find('#new-admin').checked,language:"de"}
+
+    if (params.email === null || params.email === undefined || params.email === "") {
+      Session.set("error",{message:"Please enter an email",show:true});
+      return false;
+    }
+
+    if (params.password === null || params.password === undefined || params.password === "") {
+      Session.set("error",{message:"Please enter a password",show:true});
+      return false;
+    }
+
+    if (params.username === null || params.username === undefined || params.username === "") {
+      Session.set("error",{message:"Please enter a name",show:true});
+      return false;
+    }
+
+    Meteor.call('newUser', params, function(err) {
+      if (err) {
+        if (err.reason === "Match failed") {
+          err.reason = "Fill in all values";
+        }
+        Session.set("error",{message:(err.reason != null) ? err.reason:"Unknown Error",show:true});
+      } else {
+        //clear inputs
+        t.find('#new-email').value="";
+        t.find('#new-name').value="";
+        t.find('#new-password').value="";
+        t.find('#new-admin').checked=false;
+      }
     });
 
-    //clear inputs
-    t.find('#new-email').value="";
-    t.find('#new-name').value="";
-    t.find('#new-password').value="";
-    t.find('#new-admin').checked=false;
+    return false;
   }
 });
 
@@ -30,10 +55,12 @@ Template.userItem.events({
     };
 
     Meteor.users.update(id,{$set:params});
+    return false;
   },
   'click .delete-account': function(e) {
     var id = e.currentTarget.id.substr(1);
     Meteor.users.remove(id);
+    return false;
   }
 });
 

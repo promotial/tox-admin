@@ -12,5 +12,8 @@
 
 <!-- pages are yielded into here -->
 <template name="layout">
+  <div id="alert" class="{{#unless error.show}}alert-hide{{/unless}}">
+    {{error.message}}
+  </div>
   {{yield}}
 </template>
