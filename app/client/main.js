@@ -6,8 +6,7 @@ Meteor.startup(function() {
   Session.setDefault("openCall", null);
   Session.set("error",{message:"No Errors",show:false})
   Session.set("settings",false);
-  var now = new Date();
-  Session.set("began",now.getTime());
+  Session.set("began",new Date());
 
   //Set leaflet image path
   L.Icon.Default.imagePath = '/leaflet/images';
@@ -17,25 +16,26 @@ Meteor.startup(function() {
   Meteor.subscribe('userList');
   Meteor.subscribe('tags');
 
-  //Sets language after user logs in
-  Deps.autorun(function () {
-    if (Meteor.user()) {
-      Session.set("language",Meteor.user().profile.language);
-    }
-  });
-
   //Add alert sound
   var alertSound = new buzz.sound( "/sounds/alert", {
     formats: [ "ogg", "mp3", "aac" ]
   });
 
-  //Play sound on new call
+  // Play sound on new call
+  var newCallSound = Calls.find({}).observeChanges({
+    added: function (id,fields) {
+      if (fields.timestamp > Session.get("began").getTime()) {
+        alertSound.play();
+      }
+    }
+  });
+
+  //Sets language after user logs in
   Deps.autorun(function () {
-    var latest = _.max(Calls.find().fetch(), function (call) {
-      return call.timestamp;
-    });
-    if (latest.status === "pending" && latest.timestamp > Session.get("began"))
-      alertSound.play();
+    if (Meteor.user()) {
+      Session.set("language",Meteor.user().profile.language);
+      Session.set("began",new Date());
+    }
   });
 
   //Reset errors after 6 seconds
