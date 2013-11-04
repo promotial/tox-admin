@@ -2,6 +2,7 @@ var defaultLanguage = "de";
 
 var Language = {
   en: {
+    NOT_AVAILABLE:'Not Available',
     EDIT_PROFILE:"Edit Profile",
     ADD:"Add",
     YES:"Yes",
@@ -61,6 +62,7 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    NOT_AVAILABLE:'Nicht Verfügbar',
     EDIT_PROFILE:"Profil Editieren",
     ADD:"Erst",
     YES:"Ja",
@@ -120,6 +122,7 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    NOT_AVAILABLE:"Pas Dispo",
     EDIT_PROFILE:"Editer Profile",
     ADD:"Ajout",
     YES:"Oui",
