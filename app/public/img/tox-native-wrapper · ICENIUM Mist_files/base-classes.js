@@ -1,0 +1,1 @@
+define(function(c){var a={},b=c("kendo"),d=c("modules/tracking/tracking-service");a.ViewModelBase=b.data.ObservableObject.extend({init:function(){d.trackMethods(this);b.data.ObservableObject.fn.init.apply(this,[this])}});return a});

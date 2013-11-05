@@ -1,0 +1,1 @@
+define(["curl/domReady"],function(b){function a(d,c){b(function(){var e=document.getElementById(c);if(e){d.resolve(e)}else{d.reject(new Error("No DOM node with id: "+c))}})}return{load:function(e,g,c,d){var f=c.resolve?c:{resolve:function(h){c(h)},reject:function(h){throw h}};a(f,e)}}});
