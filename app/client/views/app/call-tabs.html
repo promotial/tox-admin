@@ -84,11 +84,20 @@
     <div id="call-view-photos" class="call-view-box"> 
       <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'ATTACHED_PHOTOS'}}</div> </div>
       <div style="overflow-x:scroll; overflow-y: hidden; height:150px; white-space: nowrap;">
+        {{#if photos.length}}
+          {{#each getImages photos}}
+            <img src="data:image/jpeg;base64,{{src}}" class="call-view-photo-item-uploaded">
+          {{/each}}
+          {{#if isOne photos.length}}
+            <img src="/img/no-image.png" class="call-view-photo-item">
+          {{/if}}
+        {{else}}
+          <img src="/img/no-image.png" class="call-view-photo-item">
+          <img src="/img/no-image.png" class="call-view-photo-item">
+          <img src="/img/no-image.png" class="call-view-photo-item">
+        {{/if}}
         <img src="/img/no-image.png" class="call-view-photo-item">
-        <img src="/img/no-image.png" class="call-view-photo-item">
-        <img src="/img/no-image.png" class="call-view-photo-item">
-        <img src="/img/no-image.png" class="call-view-photo-item">
-      </div> 
+      </div>
     </div>
     <!-- caller location -->
     {{#if locShare}}

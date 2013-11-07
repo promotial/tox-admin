@@ -23,6 +23,7 @@ Template.login.events({
       } else {
         Meteor.subscribe('calls');
         Meteor.subscribe('tags');
+        Meteor.subscribe('photos');
       }
     });
 

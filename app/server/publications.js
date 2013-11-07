@@ -33,3 +33,8 @@ Meteor.publish('tags', function() {
   }
 });
 
+Meteor.publish('photos', function() {
+  if (this.userId) {
+    return Photos.find({});
+  }
+});

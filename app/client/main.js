@@ -15,6 +15,7 @@ Meteor.startup(function() {
   Meteor.subscribe('calls');
   Meteor.subscribe('userList');
   Meteor.subscribe('tags');
+  Meteor.subscribe('photos');
 
   //Add alert sound
   var alertSound = new buzz.sound( "/sounds/alert", {

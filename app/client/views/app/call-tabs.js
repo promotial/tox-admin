@@ -135,6 +135,15 @@ Template.callView.helpers({
   },
   isPending: function(status) {
     return (status==="pending");
+  },
+  getImages: function(photos) {
+    return Photos.find({_id:{$in:photos}});
+  },
+  isOne: function(val) {
+    if (val===1) {
+      return true;
+    }
+    return false;
   }
 });
 

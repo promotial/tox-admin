@@ -19,6 +19,13 @@ Meteor.methods({
         }
       } else {throw new Meteor.Error(400, "ERROR!");}
 
+      if (params.photos !== null && params.photos !== undefined) {
+        check(params.photos, [String]);
+        if (params.photos.length > 3) {
+          throw new Meteor.Error(400, "ERROR!");
+        }
+      } else {throw new Meteor.Error(400, "ERROR!");}
+
       if (params.weight && params.weight !== "") {
         check(params.weight, String);
         if (parseInt(params.weight,10) > 900) {
@@ -48,7 +55,7 @@ Meteor.methods({
       params.urgency = 0;
       params.operator = false;
 
-      Calls.insert(_.pick(params, 'timestamp','user','date','locShare','loc','name','number','age','sex','weight','status','urgency','comments','operator'));
+      Calls.insert(_.pick(params, 'photos', 'timestamp','user','date','locShare','loc','name','number','age','sex','weight','status','urgency','comments','operator'));
 
     } else {throw new Meteor.Error(401, "ERROR!");}
   },
@@ -65,6 +72,22 @@ Meteor.methods({
       Calls.update(id,{$push:{comments:params}});
     }
     throw new Meteor.Error(400,"Message can't be empty!");
+  },
+  uploadPhotos: function (photos) {
+    check(photos,[String]);
+    if (photos.length < 4) {
+      var photo_id = [];
+      for (var i = 0; i < photos.length; i++) {
+        photo_id[i] = Photos.insert({src:photos[i]});
+      }
+      if (photo_id.length === photos.length) {
+        return photo_id;
+      } else {
+        throw new Meteor.Error(500,"Error uploading images.");
+      }
+    } else {
+      throw new Meteor.Error(403,"Exceeded image limit!");
+    }
   },
   newUser: function (params,id) {
     check(params,{username:String,email:String,password:String,profile:{admin:Boolean,language:String}})
