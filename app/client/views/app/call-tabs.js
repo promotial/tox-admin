@@ -152,15 +152,28 @@ Template.callView.preserve(['#call-view-title','#call-tab-view']);
 Template.callView.rendered = function() {
   var call = Calls.findOne({_id:Session.get("openCall")});
 
-  document.getElementById("call-view-urgency").selectedIndex = call.urgency;
+  if (call) {
+    document.getElementById("call-view-urgency").selectedIndex = call.urgency;
 
-  var map = L.map('call-view-map').setView([call.loc.lat, call.loc.lon], 16);
+    var map = L.map('call-view-map').setView([call.loc.lat, call.loc.lon], 16);
 
-  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                   '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    maxZoom: 18
-  }).addTo(map);
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+          '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      maxZoom: 18
+    }).addTo(map);
+
+    var marker = L.marker([call.loc.lat, call.loc.lon]).addTo(map);
+
+    HTTP.get("http://maps.googleapis.com/maps/api/geocode/json?latlng=" + call.loc.lat + "," + call.loc.lon + "&sensor=false", function(error,result) {
+      if (result) {
+        caller_loc = result.data["results"][0]["formatted_address"];
+        marker.bindPopup(caller_loc).openPopup();
+      }
+    });
+
+    marker.bindPopup(call.loc.lat + ", " + call.loc.lon).openPopup();
+  }
 
   Deps.autorun(function() {
     Session.get("closedCalls");
