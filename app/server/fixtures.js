@@ -9,7 +9,7 @@ if (Tags.find().count() === 0) {
   }
 }
 
-/* if (Calls.find().count() === 0) {
+if (Calls.find().count() === 0) {
   var randNum = function(a,b,decimal) {
     if (decimal) {return (Math.random() * (b-a+1)) + a};
     return (Math.floor(Math.random() * (b-a+1)) + a);
@@ -20,7 +20,7 @@ if (Tags.find().count() === 0) {
   var sex = ["male","female"];
 
   var newDate = function () {
-    now.setFullYear(randNum(2011,2013), randNum(0,8), randNum(1,31));
+    now.setFullYear(2013, randNum(0,8), randNum(1,31));
     now.setMinutes( randNum(1,59) );
     now.setHours( randNum(1,23) );
   };
@@ -44,6 +44,6 @@ if (Tags.find().count() === 0) {
       operator: false
     });
   }
-} */
+}
 
 
