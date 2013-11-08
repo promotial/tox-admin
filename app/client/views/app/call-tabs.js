@@ -68,7 +68,7 @@ Template.callItem.helpers({
     return false;
   },
   myCall: function(operator) {
-    if (Meteor.user().username === operator) {
+    if (Meteor.userId() === operator) {
       return true;
     }
     return false;
@@ -85,11 +85,11 @@ Template.callItem.events({
   "click #call-item-action-btn": function() {
     if (this.status === "pending") {
       Calls.update(this._id, {
-        $set: {status:"active", operator:Meteor.user().username}
+        $set: {status:"active", operator:Meteor.userId()}
       });
       Router.go("/calls/"+this._id);
       Session.set("openList","active");
-    } else if (this.status === "active" && this.operator==Meteor.user().username) {
+    } else if (this.status === "active" && this.operator==Meteor.userId()) {
       Calls.update(this._id, {
         $set: {status:"closed"}
       });

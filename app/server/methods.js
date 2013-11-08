@@ -100,9 +100,9 @@ Meteor.methods({
       })
     }
   },
-  'removedUser': function(name) {
-    check(name,String);
-    Calls.update({operator:name,status:"active"},{$set:{operator:false,status:"pending"}},{multi:true});
+  'removedUser': function(id) {
+    check(id,String);
+    Calls.update({operator:id,status:"active"},{$set:{operator:false,status:"pending"}},{multi:true});
   }
 });
 

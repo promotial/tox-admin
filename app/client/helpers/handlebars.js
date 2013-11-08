@@ -3,8 +3,13 @@ Handlebars.registerHelper('callTimeAgo', function(date) {
   return moment(date).fromNow();
 });
 
-Handlebars.registerHelper('getInitials', function(name) {
+Handlebars.registerHelper('getOperatorInitials', function(operator) {
+  var name = Meteor.users.findOne(operator).username;
   return name.replace(/[^A-Z]/g, '');
+});
+
+Handlebars.registerHelper('getOperatorName', function(operator) {
+  return Meteor.users.findOne(operator).username;
 });
 
 Handlebars.registerHelper('calendarTime', function(date) {

@@ -23,6 +23,8 @@ Meteor.publish('userList', function() {
   if (this.userId) {
     if (Meteor.users.findOne(this.userId).profile.admin) {
       return Meteor.users.find({});
+    } else {
+      return Meteor.users.find({},{fields: {username:1,_id:1}});
     }
   }
 });

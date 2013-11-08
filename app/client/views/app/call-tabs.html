@@ -46,7 +46,7 @@
     <!-- assigned operator -->
     <div id="call-item-assigned" class="call-item-btn call-item-assigned-{{myCall operator}}">
       <!-- operator initials/photo -->
-      <span title='{{operator}}'>{{getInitials operator}}</span>
+      <span title='{{getOperatorName operator}}'>{{getOperatorInitials operator}}</span>
       {{#if myCall operator}}
         <!-- leave/open buttons -->
         <a href="" id="call-item-assigned-action" class="call-item-btn">{{assignedAction status}}</a>
@@ -86,7 +86,7 @@
       <div style="overflow-x:scroll; overflow-y: hidden; height:150px; white-space: nowrap;">
         {{#if photos.length}}
           {{#each getImages photos}}
-            <img src="data:image/jpeg;base64,{{src}}" class="call-view-photo-item-uploaded">
+            <img src="{{src}}" class="call-view-photo-item-uploaded">
           {{/each}}
           {{#if isOne photos.length}}
             <img src="/img/no-image.png" class="call-view-photo-item">
