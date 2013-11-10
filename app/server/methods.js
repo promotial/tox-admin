@@ -1,52 +1,52 @@
 Meteor.methods({
   newCall: function (params) {
-    if (params.secret==="r4nx4NXCZsMEIPV8FJplpnIMKg28qP0HNpY2tXOl0nXzmvVLohr2HDYpyrT1w4Y") {
+    if (params.secret === "r4nx4NXCZsMEIPV8FJplpnIMKg28qP0HNpY2tXOl0nXzmvVLohr2HDYpyrT1w4Y") {
       if (params.number && params.number !== "") {
         check(params.number, String);
-      } else {params.number=false;}
+      } else { params.number = false; }
 
       if (params.age && params.age !== "") {
         check(params.age, String);
         if (parseInt(params.age,10) > 140) {
           throw new Meteor.Error(400, "Enter real age");
         }
-      } else {params.age=false;}
+      } else { params.age = false; }
 
       if (params.sex !== null && params.sex !== undefined) {
         check(params.sex, Match.Integer);
         if (params.sex !== 1 && params.sex !== 0) {
           throw new Meteor.Error(400, "ERROR!");
         }
-      } else {throw new Meteor.Error(400, "ERROR!");}
+      } else { throw new Meteor.Error(400, "ERROR!"); }
 
       if (params.photos !== null && params.photos !== undefined) {
         check(params.photos, [String]);
         if (params.photos.length > 3) {
           throw new Meteor.Error(400, "ERROR!");
         }
-      } else {throw new Meteor.Error(400, "ERROR!");}
+      } else { throw new Meteor.Error(400, "ERROR!"); }
 
       if (params.weight && params.weight !== "") {
         check(params.weight, String);
-        if (parseInt(params.weight,10) > 900) {
+        if (parseInt(params.weight, 10) > 900) {
           throw new Meteor.Error(400, "Enter real weight");
         }
-      } else {params.weight=false;}
+      } else { params.weight = false; }
 
       if (params.locShare !== null && params.locShare !== undefined) {
         check(params.locShare, Boolean);
         if (params.locShare) {
-          check(params.loc,{lon:Number,lat:Number});
+          check(params.loc, { lon: Number, lat: Number});
         } else {if (params.loc !== false) {throw new Meteor.Error(400, "Could Not Access Location");} }
-      } else {throw new Meteor.Error(400, "ERROR!");}
+      } else { throw new Meteor.Error(400, "ERROR!"); }
 
       if (!params.user) {
-        throw new Meteor.Error(401,"Access Denied!");
+        throw new Meteor.Error(401, "Access Denied!");
       }
 
       if (params.name && params.name.length > 0) {
         check(params.name, String);
-      } else {throw new Meteor.Error(400, "ERROR!");}
+      } else { throw new Meteor.Error(400, "ERROR!"); }
 
       params.date = new Date();
       params.timestamp = params.date.getTime();
@@ -55,9 +55,9 @@ Meteor.methods({
       params.urgency = 0;
       params.operator = false;
 
-      Calls.insert(_.pick(params, 'photos', 'timestamp','user','date','locShare','loc','name','number','age','sex','weight','status','urgency','comments','operator'));
+      Calls.insert(_.pick(params, 'photos', 'timestamp', 'user', 'date', 'locShare', 'loc', 'name', 'number', 'age', 'sex', 'weight', 'status', 'urgency', 'comments','operator'));
 
-    } else {throw new Meteor.Error(401, "ERROR!");}
+    } else { throw new Meteor.Error(401, "ERROR!"); }
   },
   newComment: function (message,id) {
     if (!Calls.findOne(id)) {throw new Meteor.Error(404,"Call doesn't exist");}
