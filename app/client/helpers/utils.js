@@ -1,4 +1,6 @@
+Utils = {};
+
 //trimInput function
-trimInput = function(val) {
+Utils.trimInput = function(val) {
   return val.replace(/^\s*|\s*$/g, "");
 };

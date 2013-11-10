@@ -4,7 +4,7 @@ Template.callList.helpers({
       return Calls.find({status:"pending"}, { sort: [["timestamp","asc"]] });
     }
     else {
-      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","asc"]] }); 
+      return Calls.find({status:"active"}, { sort: [["urgency","desc"],["timestamp","asc"]] });
     }
   },
   pending: function() {
@@ -21,9 +21,9 @@ Template.callList.helpers({
 
 Template.callList.events({
   //show pending calls
-  'click .call-list-button-pending': function (event) {Session.set("openList","pending")},
+  'click .call-list-button-pending': function (event) {Session.set("openList","pending");},
   //show active calls
-  'click .call-list-button-active': function (event) {Session.set("openList","active")},
+  'click .call-list-button-active': function (event) {Session.set("openList","active");}
 });
 
 Template.closedCalls.preserve(['#call-tab-closed','#closed-calls-title']);
@@ -41,17 +41,19 @@ Template.closedCalls.helpers({
 
 Template.callItem.helpers({
   action: function(status) {
+    var actionVal;
     switch(status) {
-      case "pending": var actionVal = multiLang("TAKE");   break;
-      case "active" : var actionVal = multiLang("CLOSE");  break;
-      case "closed" : var actionVal = multiLang("DELETE"); break;
+      case "pending": actionVal = multiLang("TAKE");   break;
+      case "active" : actionVal = multiLang("CLOSE");  break;
+      case "closed" : actionVal = multiLang("DELETE"); break;
     }
     return actionVal;
   },
   assignedAction: function(status) {
+    var actionVal;
     switch(status) {
-      case "active" : var actionVal=multiLang("LEAVE"); break;
-      case "closed" : var actionVal=multiLang("OPEN"); break;
+      case "active" : actionVal=multiLang("LEAVE"); break;
+      case "closed" : actionVal=multiLang("OPEN"); break;
     }
     return actionVal;
   },
@@ -140,10 +142,7 @@ Template.callView.helpers({
     return Photos.find({_id:{$in:photos}});
   },
   isOne: function(val) {
-    if (val===1) {
-      return true;
-    }
-    return false;
+    return (val===1);
   }
 });
 
@@ -167,8 +166,8 @@ Template.callView.rendered = function() {
 
     HTTP.get("http://maps.googleapis.com/maps/api/geocode/json?latlng=" + call.loc.lat + "," + call.loc.lon + "&sensor=false", function(error,result) {
       if (result) {
-        caller_loc = result.data["results"][0]["formatted_address"];
-        marker.bindPopup(caller_loc).openPopup();
+        callerLoc = result.data.results[0].formatted_address;
+        marker.bindPopup(callerLoc).openPopup();
       }
     });
 
@@ -177,8 +176,8 @@ Template.callView.rendered = function() {
 
   Deps.autorun(function() {
     Session.get("closedCalls");
-    var rerender = function(){map.invalidateSize();};
-    Meteor.setTimeout(rerender,1550);
+    var renderAgain = function(){map.invalidateSize();};
+    Meteor.setTimeout(renderAgain,1550);
   });
 };
 
@@ -189,7 +188,7 @@ Template.callView.events({
     });
   },
   "click .send-btn": function(e,t) {
-    var commentsInput = t.find('.call-view-comments-input')
+    var commentsInput = t.find('.call-view-comments-input');
     Meteor.call("newComment",commentsInput.value,Session.get("openCall"),
       function(e,r) {
         if (e) {

@@ -1,1 +1,0 @@
-var serviceConfiguration = JSON.parse('{"assemblyVersion":"2013.3.1031.1","backendServiceScheme":"https","stsServer":"tfis.telerik.com","clientId":"uri:ice","analyticsAccountCode":"UA-28879763-2","eqatecProductId":"A20FF4C92AFD44E8A8D676C9F2690193"}');

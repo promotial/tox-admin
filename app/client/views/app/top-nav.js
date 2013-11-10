@@ -4,7 +4,7 @@ Template.topNav.events({
     if (Session.equals("closedCalls","hide")) {
       Session.set("closedCalls","show");
     }
-    else {Session.set("closedCalls","hide");};
+    else {Session.set("closedCalls","hide");}
   },
   //log out button
   'click #logout-btn': function () {
@@ -12,7 +12,7 @@ Template.topNav.events({
     Router.go("/");
   },
   //settings button
-  'click #settings-btn': function (e) {
+  'click #settings-btn': function () {
     if (!Session.get("settings")) {
       Session.set("settings","menu");
       return false;

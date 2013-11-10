@@ -1,10 +1,10 @@
 Template.admin.events({
   'click #new-user': function(e,t) {
-    params = {};
+    var params = {};
     params.username = trimInput(t.find('#new-name').value);
     params.email = trimInput(t.find('#new-email').value);
     params.password = trimInput(t.find('#new-password').value);
-    params.profile = {admin:t.find('#new-admin').checked,language:"de"}
+    params.profile = {admin:t.find('#new-admin').checked,language:"de"};
 
     if (params.email === null || params.email === undefined || params.email === "") {
       Session.set("error",{message:"Please enter an email",show:true});
@@ -26,7 +26,7 @@ Template.admin.events({
         if (err.reason === "Match failed") {
           err.reason = "Fill in all values";
         }
-        Session.set("error",{message:(err.reason != null) ? err.reason:"Unknown Error",show:true});
+        Session.set("error",{message:(err.reason || "Unknown Error"),show:true});
       } else {
         //clear inputs
         t.find('#new-email').value="";
@@ -49,21 +49,21 @@ Template.userItem.events({
     var id = e.currentTarget.id.substr(1);
 
     var params = {
-      emails: [{address:trimInput(t.find('#e'+id).value)}],
-      username: trimInput(t.find('#n'+id).value),
+      emails: [{address:Utils.trimInput(t.find('#e'+id).value)}],
+      username: Utils.trimInput(t.find('#n'+id).value),
       profile: {admin:t.find('#a'+id).checked,language:t.find('.'+id).id}
-    }
+    };
 
     Meteor.users.update(id,{$set:params});
 
     return false;
   },
-  'click .delete-account': function(e,t) {
+  'click .delete-account': function(e) {
     var id = e.currentTarget.id.substr(1);
     var name = Meteor.users.findOne({_id:id}).username;
     Meteor.users.remove(id, function(err) {
       if (err) {
-        Session.set("error",{message:(err.reason != null) ? err.reason:"Unknown Error",show:true});
+        Session.set("error",{message:(err.reason || "Unknown Error"),show:true});
       } else {
         Meteor.call('removedUser',name);
       }

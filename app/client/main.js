@@ -23,7 +23,7 @@ Meteor.startup(function() {
   });
 
   // Play sound on new call
-  var newCallSound = Calls.find({}).observeChanges({
+  Calls.find({}).observeChanges({
     added: function (id,fields) {
       if (fields.timestamp > Session.get("began").getTime()) {
         alertSound.play();
@@ -42,9 +42,10 @@ Meteor.startup(function() {
   //Reset errors after 6 seconds
   Deps.autorun(function () {
     var errorVal = Session.get("error");
+    var errorTimeout;
 
     var hideError = function() {
-      var errorVal = Session.get("error");
+      errorVal = Session.get("error");
       errorVal.show = false;
       Session.set("error",errorVal);
     }
@@ -53,7 +54,7 @@ Meteor.startup(function() {
       if (errorTimeout) {
         Meteor.clearTimeout(errorTimeout);
       }
-      var errorTimeout = Meteor.setTimeout(hideError, 2500)
+      errorTimeout = Meteor.setTimeout(hideError, 2500);
     }
   });
 });

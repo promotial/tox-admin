@@ -61,7 +61,7 @@ Template.settingsLang.helpers({
 Template.settingsTags.events({
   'click .tags-save': function(e,t) {
     var number = Number(e.currentTarget.id);
-    var value = trimInput(t.find('#val-'+number).value);
+    var value = Utils.trimInput(t.find('#val-'+number).value);
     var id = Tags.findOne({number:number})._id;
     Tags.update(id,{$set:{value:value}});
   }
@@ -75,8 +75,8 @@ Template.settingsTags.helpers({
 
 Template.settingsPass.events({
   'click .settings-save': function(e,t) {
-    var oldPassword = trimInput(t.find('#old-pass').value);
-    var newPassword = trimInput(t.find('#new-pass').value);
+    var oldPassword = Utils.trimInput(t.find('#old-pass').value);
+    var newPassword = Utils.trimInput(t.find('#new-pass').value);
     Accounts.changePassword(oldPassword, newPassword, function(err) {
       t.find('#old-pass').value = "";
       t.find('#new-pass').value = "";

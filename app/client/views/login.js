@@ -1,7 +1,7 @@
 Template.login.events({
   'submit #login-form' : function(e, t){
     // retrieve the input field values
-    var email = trimInput(t.find('#login-email').value);
+    var email = Utils.trimInput(t.find('#login-email').value);
     var password = t.find('#login-password').value;
 
     if (email === null || email === undefined || email === "") {

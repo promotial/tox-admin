@@ -1,1 +1,0 @@
-define(["js!noamd/kendo.web.js"],function(){return window.kendo});

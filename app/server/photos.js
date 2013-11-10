@@ -1,8 +1,9 @@
-var cleanPhotos = setInterval(function(){
-  var photos = Photos.find({});
-  photos.forEach(function(photo) {
-    if (!(Calls.findOne({photos:photo._id}))) {
-      Photos.remove(photo._id);
+setInterval(function(){
+  var photos = Photos.find({}).fetch();
+
+  for (var i = 0; i < photos.length; i += 1) {
+    if (!(Calls.findOne({photos:photos[i]._id}))) {
+      Photos.remove(photos[i]._id);
     }
-  })
+  }
 },300000);

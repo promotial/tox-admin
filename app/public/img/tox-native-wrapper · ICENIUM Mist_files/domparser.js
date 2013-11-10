@@ -1,1 +1,0 @@
-(function(a){var b=a.prototype,d=b.parseFromString;try{if((new a).parseFromString("","text/html")){return}}catch(c){}b.parseFromString=function(f,g){if(/^\s*text\/html\s*(?:;|$)/i.test(g)){var e=document.implementation.createHTMLDocument("");e.documentElement.innerHTML=f;return e}else{return d.apply(this,arguments)}}}(DOMParser));

@@ -1,1 +1,0 @@
-define(function(c){var b=c("dom!viewPaneRegion"),a=c("kendo");var d=a.Observable.extend({EVENT_CHANGE:"change",init:function(){var e=this;a.Observable.fn.init.apply(e,[e])},appendToElement:function(e){var f=this;f._$container=$(e)},loadViewItem:function(e){},show:function(){var e=this;e._$element.show()},supress:function(){var e=this;e._$element.hide()}});return d});

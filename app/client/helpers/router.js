@@ -1,4 +1,4 @@
-userDocHandle = {
+var userDocHandle = {
   ready: function () {
     if(!Accounts.loginServicesConfigured())
       return false;

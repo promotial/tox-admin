@@ -1,1 +1,0 @@
-define(function(b){var a=b("kendo");var c=a.Class.extend({init:function(){},render:function(f,g,e){var d=$(e).html(f);this.bind(g,e);return d},renderInside:function(f,g,e){var d=$(f);if(d.length!==1){d=$("<div>").append(d)}$(e).append(d);this.bind(g,d[0]);return d},bind:function(e,d){a.bind(d,e);e.trigger("bind",{view:d})}});return new c()});
