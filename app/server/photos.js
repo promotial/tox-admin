@@ -1,4 +1,4 @@
-setInterval(function() {
+Meteor.setInterval(function() {
   var photos = Calls.find({}).fetch();
 
   for (var i = 0; i < photos.length; i += 1) {
