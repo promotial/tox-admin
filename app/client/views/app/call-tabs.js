@@ -221,6 +221,11 @@ Template.noCallView.helpers({
     if (Session.equals("closedCalls","show")) {
       return "call-view-shrink";
     }
+  },
+  extend: function() {
+    if (Session.equals("closedCalls","show")) {
+      return "call-view-extend";
+    }
   }
 });
 
