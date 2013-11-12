@@ -1,4 +1,4 @@
-var userDocHandle = {
+userDocHandle = {
   ready: function () {
     if(!Accounts.loginServicesConfigured())
       return false;
@@ -39,7 +39,7 @@ Router.map(function () {
       }
     }
   });
-  
+
   //individual call view by id
   this.route('callView', {
     path: '/calls/:_id',
@@ -58,8 +58,8 @@ Router.map(function () {
       this.render('callView', { to: 'callTab' });
     },
     waitOn: function() {return Meteor.subscribe('calls');}
-});
-  
+  });
+
   //routes "/" to app 
   this.route('app', {
     path: '/',
