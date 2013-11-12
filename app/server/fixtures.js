@@ -9,7 +9,7 @@ if (Tags.find().count() === 0) {
   }
 }
 
-if (Calls.find().count() === 0) {
+/* if (Calls.find().count() === 0) {
   var randNum = function(a,b,decimal) {
     if (decimal) {return (Math.random() * (b-a+1)) + a};
     return (Math.floor(Math.random() * (b-a+1)) + a);
@@ -44,6 +44,6 @@ if (Calls.find().count() === 0) {
       operator: false
     });
   }
-}
+} */
 
 
