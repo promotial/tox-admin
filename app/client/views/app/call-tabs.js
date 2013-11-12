@@ -16,8 +16,18 @@ Template.callList.helpers({
     if (Session.equals("openList","active")) {
       return "open-list";
     }
+  },
+  hide: function(list) {
+    if (Session.equals("closedCalls", "show")) {
+      if (list !== 'active') {
+        return "call-list-hide";
+      }
+      return "call-list-hide-active";
+    }
   }
 });
+
+Template.callList.preserve(['.call-list-button-pending', '.call-list-button-active', '.call-tab ']);
 
 Template.callList.events({
   //show pending calls
@@ -143,6 +153,11 @@ Template.callView.helpers({
   },
   isOne: function(val) {
     return (val===1);
+  },
+  extend: function() {
+    if (Session.equals("closedCalls","show")) {
+      return "call-view-extend";
+    }
   }
 });
 

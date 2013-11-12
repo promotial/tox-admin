@@ -1,13 +1,13 @@
 <template name="callList">
   <!-- call lists buttons -->
-  <div class="call-list-button call-list-button-pending {{pending}}">
+  <div class="call-list-button call-list-button-pending {{pending}} {{hide}}">
     <div class="call-list-buttons-text">{{multiLang 'PENDING'}}</div>
   </div>
-  <div class="call-list-button call-list-button-active {{active}}">
+  <div class="call-list-button call-list-button-active {{active}} {{hide 'active'}}">
     <div class="call-list-buttons-text">{{multiLang 'ACTIVE'}}</div>
   </div>
   <!-- call list tab -->
-  <div class="call-tab">
+  <div class="call-tab {{hide}}">
     {{#each calls}}
       {{> callItem}}
     {{/each}}
@@ -59,7 +59,7 @@
 <template name="callView">
   {{#with call}}
   <!-- tab title -->
-  <div id="call-view-title" class="call-list-button {{shrink}}">
+  <div id="call-view-title" class="call-list-button {{shrink}} {{extend}}">
     <div class="call-view-title-text">{{#if number}} {{number}} {{else}} {{multiLang 'NOT_AVAILABLE'}} {{/if}}</div>
     <select id="call-view-urgency">
       <option>None</option>
@@ -67,10 +67,10 @@
       <option>{{urgency 1}}</option>
       <option>{{urgency 2}}</option>
       <option>{{urgency 3}}</option>
-    </select> 
+    </select>
   </div>
   <!-- tab content -->
-  <div id="call-tab-view" class="call-tab {{shrink}}">
+  <div id="call-tab-view" class="call-tab {{shrink}} {{extend}}">
     <!-- call description -->
     <div id="call-view-description" class="call-view-box"> 
       <div class="call-view-box-title"> <div style="padding:5px;">{{multiLang 'CALL_DESCRIPTION'}}</div> </div>

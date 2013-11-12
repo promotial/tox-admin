@@ -13,7 +13,6 @@ Meteor.startup(function() {
 
   //Subscribe to meteor collections
   Meteor.subscribe('calls');
-  Meteor.subscribe('userList');
   Meteor.subscribe('tags');
   Meteor.subscribe('photos');
 

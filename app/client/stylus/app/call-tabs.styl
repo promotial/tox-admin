@@ -5,7 +5,6 @@
   height auto
   top 38px
   bottom 0px
-  min-width 990px
   overflow hidden
 
 /*CALL LISTS*/
@@ -13,18 +12,21 @@
 //call list buttons
 .call-list-button
   position absolute
-  background #2980B9
   height 34px
-  width 15%
+  width 180
   top 0px
-  text-align center
   background #436066
+  text-align center
 .call-list-button-active
-  left 15%
+  left 180px
+  width 180px
+  transition left 1.2s
   &:hover
     opacity 0.9
     cursor pointer
 .call-list-button-pending
+  width 180px
+  transition left 1.2s
   &:hover
     opacity 0.9
     cursor pointer
@@ -32,32 +34,41 @@
   background #378a86
   &:hover
     opacity 1
+.call-list-hide
+  @media (max-width:1260px)
+    transition left 1.2s
+    left -360px !important
+.call-list-hide-active
+  @media (max-width:1260px)
+    transition left 1.2s
+    left -180px !important
 .call-list-buttons-text
   font-size 21px
   margin-top 5px
   text-align center
-  color white  
+  color white
 #closed-calls-title
-  width 30%
-  left 100% 
+  width 360px
+  right -360px
   background #37648a 
-  transition left 1.5s
+  transition right 1.2s
 //call tab content
 .call-tab
   position absolute    
   height auto
   top 34px
   bottom 0px
-  width 30%
+  transition left 1.2s
+  width 360px
   overflow-y auto
   overflow-x hidden
   background #45ADA8
 #call-tab-closed
   background #457ead
-  left 100%
-  transition left 1.5s
+  right -360px
+  transition right 1.2s
 .closed-show
-  left 70% !important
+  right 0px !important
 
 /* CALL LIST ITEM */
 
@@ -146,14 +157,24 @@
 
 //call view tab
 #call-tab-view
-  background #B0B0B0   
-  width 70%
-  left 30%
+  background #B0B0B0
+  width auto !important
+  left 360px
+  right 0px
   top 34px
-  transition width 1.5s
+  bottom -10px
+  min-width 420px
+  overflow auto
+  transition left 1.2s, right 1.2s
 //call view classes
 .call-view-shrink
-  width 40% !important
+  right 360px !important
+  #call-view-description, #call-view-photos
+    @media (max-width:1450px)
+      width 94%
+.call-view-extend
+  @media (max-width:1260px)
+    left 0px !important
   #call-view-description, #call-view-photos
     @media (max-width:1450px)
       width 94%
@@ -171,9 +192,10 @@
 //call view title
 #call-view-title
   background #3498db
-  width 70%
-  left 30%
-  transition width 1.5s
+  width auto !important
+  left 360px
+  right 0px
+  transition left 1.2s, right 1.2s
 //call view title text
 .call-view-title-text
   margin-left 4px
