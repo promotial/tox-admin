@@ -65,7 +65,7 @@ var Language = {
   },
   de: {
     RESET_TOKEN: "Passwort Zurücksetz Token",
-    CHANGE: "Change",
+    CHANGE: "Verändern",
     NOT_AVAILABLE:'Nicht Verfügbar',
     EDIT_PROFILE:"Profil Editieren",
     ADD:"Erst",
@@ -127,7 +127,7 @@ var Language = {
   },
   fr: {
     RESET_TOKEN: "Symbole de réinitialisation",
-    CHANGE: "Change",
+    CHANGE: "Changer",
     NOT_AVAILABLE:"Pas Dispo",
     EDIT_PROFILE:"Editer Profile",
     ADD:"Ajout",
@@ -206,7 +206,7 @@ Handlebars.registerHelper('multiLang', function(baseString,caps) {
   }
   else if (caps === "LOWER") {
     return multiLang(baseString).toLowerCase();
-  };
+  }
   return multiLang(baseString);
 });
 
