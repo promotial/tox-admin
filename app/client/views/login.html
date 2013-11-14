@@ -2,12 +2,11 @@
   <div class="login">
     <form id="login-form">
       <div id="login-title">Tox Operator</div>
-
       {{#if forgot}}
       <fieldset id="inputs">
         <input id="login-email-forgot" type="email" placeholder="{{multiLang 'EMAIL'}}" autofocus>
         <div class="send-forgot-btn" ><span style="font-size:24px" aria-hidden=true class="icon-bubbles"></span></div>
-        <input id="login-reset-token" type="email" placeholder="Reset Token" autofocus>
+        <input id="login-reset-token" type="email" placeholder="{{multiLang 'RESET_TOKEN'}}" autofocus>
         <input id="login-new-password" type="password" placeholder="{{multiLang 'NEW_PASSWORD'}}">
       </fieldset>
       {{else}}
@@ -20,7 +19,7 @@
       <fieldset id="actions" class="{{#if forgot}} register-actions {{/if}}">
         {{#if forgot}}
         <input type="submit" id="back-button" class="login-button change-forgot" value="{{multiLang 'BACK'}}">
-        <input type="submit" id="change-button" class="login-button" value="Change">
+        <input type="submit" id="change-button" class="login-button" value="{{multiLang 'CHANGE'}}">
         {{else}}
         <input type="submit" id="login-button" class="login-button" value="{{multiLang 'LOGIN'}}">
         <a href="" class="change-forgot">{{multiLang 'FORGOT_PASS'}}</a>

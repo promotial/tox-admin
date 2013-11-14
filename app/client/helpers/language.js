@@ -2,6 +2,8 @@ var defaultLanguage = "de";
 
 var Language = {
   en: {
+    RESET_TOKEN: "Reset Token",
+    CHANGE: "Change",
     NOT_AVAILABLE:'Not Available',
     EDIT_PROFILE:"Edit Profile",
     ADD:"Add",
@@ -62,6 +64,8 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    RESET_TOKEN: "Passwort Zurücksetz Token",
+    CHANGE: "Change",
     NOT_AVAILABLE:'Nicht Verfügbar',
     EDIT_PROFILE:"Profil Editieren",
     ADD:"Erst",
@@ -122,6 +126,8 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    RESET_TOKEN: "Symbole de réinitialisation",
+    CHANGE: "Change",
     NOT_AVAILABLE:"Pas Dispo",
     EDIT_PROFILE:"Editer Profile",
     ADD:"Ajout",
