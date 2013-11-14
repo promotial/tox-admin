@@ -9,12 +9,22 @@ Meteor.publish('calls', function(userID) {
   }
 });
 
+Meteor.publish("userList", function () {
+  if (this.userId) {
+    if (Meteor.users.findOne(this.userId).profile.admin) {
+      return Meteor.users.find({}, { fields: { "services.resume": 0 } });
+    } else {
+      return Meteor.users.find({_id: this.userId}, {fields: {"services.resume": 0, "profile.admin": 0 } });
+    }
+  }
+});
+
 Meteor.publish("userData", function () {
   if (this.userId) {
     if (Meteor.users.findOne(this.userId).profile.admin) {
-      return Meteor.users.find({ fields: { "services.resume": 0 } });
+      return Meteor.users.findOne(this.userId, { fields: { 'services.resume': 0 } });
     } else {
-      return Meteor.users.find({_id: this.userId}, {fields: {"services.resume": 0, "profile.admin": 0 } });
+      return Meteor.users.findOne(this.userId, { fields: { 'services.resume': 0, 'profile.admin': 0 } });
     }
   }
 });

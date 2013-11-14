@@ -15,6 +15,7 @@ Router.configure({
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {
+      Session.set("forgot", false);
 
       // render the login template but keep the url in the browser the same
       this.render('login');
@@ -37,7 +38,8 @@ Router.map(function () {
         // redirect to app
         this.redirect("/");
       }
-    }
+    },
+    waitOn: Meteor.subscribe("userList")
   });
 
   //individual call view by id

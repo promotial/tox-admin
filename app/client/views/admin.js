@@ -1,9 +1,9 @@
 Template.admin.events({
   'click #new-user': function(e,t) {
     var params = {};
-    params.username = trimInput(t.find('#new-name').value);
-    params.email = trimInput(t.find('#new-email').value);
-    params.password = trimInput(t.find('#new-password').value);
+    params.username = Utils.trimInput(t.find('#new-name').value);
+    params.email = Utils.trimInput(t.find('#new-email').value);
+    params.password = Utils.trimInput(t.find('#new-password').value);
     params.profile = {admin:t.find('#new-admin').checked,language:"de"};
 
     if (params.email === null || params.email === undefined || params.email === "") {
@@ -41,7 +41,7 @@ Template.admin.events({
 });
 
 Template.admin.helpers({
-  users: Meteor.users.find({})
+  users: Meteor.users.find({_id:{$not: Meteor.userId()}})
 });
 
 Template.userItem.events({
