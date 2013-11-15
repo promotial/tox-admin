@@ -3,13 +3,22 @@ Handlebars.registerHelper('callTimeAgo', function(date) {
   return moment(date).fromNow();
 });
 
-Handlebars.registerHelper('getOperatorInitials', function(operator) {
-  var name = Meteor.users.findOne(operator).username;
+Handlebars.registerHelper('getOperatorInitials', function (operator) {
+  if (!operator) { return "UD"; }
+  if (Meteor.users.findOne(operator)) {
+    var name = Meteor.users.findOne(operator).username;
+  } else {
+    return "UD";
+  }
   return name.replace(/[^A-Z]/g, '');
 });
 
-Handlebars.registerHelper('getOperatorName', function(operator) {
-  return Meteor.users.findOne(operator).username;
+Handlebars.registerHelper('getOperatorName', function (operator) {
+  if (!operator) { return "User Deleted"; }
+  if (Meteor.users.findOne(operator)) {
+    return Meteor.users.findOne(operator).username;
+  }
+  return "User Deleted";
 });
 
 Handlebars.registerHelper('calendarTime', function(date) {
@@ -22,10 +31,10 @@ Handlebars.registerHelper('getDescription', function(name,date,age,sex,weight) {
   var sexName = multiLang("SEX_"+sex);
   var description = multiLang("DESCRIPTION");
   if (age === false) {
-    age="?";
+    age = "?";
   }
   if (weight === false) {
-    weight="? ";
+    weight = "?";
   }
   description = description.replace("_NAME_",name, "gi");
   description = description.replace("_DATE_",date, "gi");
